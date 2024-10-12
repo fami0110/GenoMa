@@ -13,11 +13,12 @@ class Tourism extends Model
 
     protected $fillable = [
         'name',
-        'foto',
+        'category',
+        'photos',
         'link',
         'alamat',
         'longitude',
-        'latitude', 
+        'latitude',
         'price_min',
         'price_max',
         'facility',

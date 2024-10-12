@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('tourisms', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name', 50);
-            $table->json('foto');
+            $table->string('category', 15);
+            $table->json('photos');
             $table->string('link', 50);
             $table->string('alamat', 100);
             $table->float('longitude');
