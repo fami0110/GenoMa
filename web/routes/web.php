@@ -23,34 +23,32 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('localization')->group(function() {
 
-    Route::middleware('guest')->group(function() {
-        Route::get('/', [HomeController::class, 'index']);
-        
-        Route::get('/tourism', [TourismController::class, 'index']);
-        Route::get('/tourism/{id}', [TourismController::class, 'show']);
-        
-        Route::get('/msmes', [MsmesController::class, 'index']);
-        Route::get('/msmes/{id}', [MsmesController::class, 'show']);
-        
-        Route::get('/cultures', [CulturesController::class, 'index']);
-        Route::get('/cultures/{id}', [CulturesController::class, 'show']);
-        
-        Route::get('/culinary ', [CulinaryController::class, 'index']);
-        Route::get('/culinary/{id}', [CulinaryController::class, 'show']);
+    Route::get('/', [HomeController::class, 'index']);
     
-        Route::get('/locale/{lang}', [LocalController::class, 'change']);
-        
-        // Route::get('/contact', [HomeController::class, 'index']);
-        // Route::post('/contact', [HomeController::class, 'index']);
+    Route::get('/tourism', [TourismController::class, 'index']);
+    Route::get('/tourism/{id}', [TourismController::class, 'show']);
+    
+    Route::get('/msmes', [MsmesController::class, 'index']);
+    Route::get('/msmes/{id}', [MsmesController::class, 'show']);
+    
+    Route::get('/cultures', [CulturesController::class, 'index']);
+    Route::get('/cultures/{id}', [CulturesController::class, 'show']);
+    
+    Route::get('/culinary ', [CulinaryController::class, 'index']);
+    Route::get('/culinary/{id}', [CulinaryController::class, 'show']);
 
-        Route::get('/admin/login', [LoginController::class, 'index']); 
-        Route::post('/admin/login', [LoginController::class, 'process']); 
-     });
-     
-
+    Route::get('/locale/{lang}', [LocalController::class, 'change']);
+    
+    // Route::get('/contact', [HomeController::class, 'index']);
+    // Route::post('/contact', [HomeController::class, 'index']);
+    
     Route::prefix('admin')->group(function () {
+        Route::middleware('guest')->group(function() {
+            Route::get('/login', [LoginController::class, 'index']); 
+            Route::post('/login', [LoginController::class, 'process']); 
+        });
 
-        Route::middleware('user')->group(function () {
+        Route::middleware('admin')->group(function () {
             Route::get('/logout', [LoginController::class, 'logout']);
 
             Route::get('/tourism', [TourismController::class, 'admin']);

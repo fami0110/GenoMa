@@ -1,0 +1,35 @@
+{
+    "place_name": "Es teler merah delima",
+    "place_rate": 4.6,
+    "place_address": "Jl. Jenderal Basuki Rahmat No.11 A, RW.3, Kauman, Kec. Klojen, Kota Malang, Jawa Timur 65119",
+    "place_contact": "0857-3609-6170",
+    "schedules": {
+        "Senin": [
+            "Tutup"
+        ],
+        "Selasa": [
+            "11.00",
+            "20.00"
+        ],
+        "Rabu": [
+            "11.00",
+            "20.00"
+        ],
+        "Kamis": [
+            "11.00",
+            "20.00"
+        ],
+        "Jumat": [
+            "11.00",
+            "20.00"
+        ],
+        "Sabtu": [
+            "11.00",
+            "20.00"
+        ],
+        "Minggu": [
+            "11.00",
+            "20.00"
+        ]
+    }
+}

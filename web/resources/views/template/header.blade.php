@@ -82,3 +82,5 @@
             </nav>
         </div>
     </header>
+
+    @include('template.flasher')

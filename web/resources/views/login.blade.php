@@ -68,6 +68,9 @@
 
 <body>
     <main class="main">
+
+        @include('template.flasher')
+
         <div class="center-vertically-horizontally">
             <div class="col-10 col-md-6">
                 <div class="card card-sign-in shadow-sm border-0 mb-3 rounded-4">
@@ -79,26 +82,26 @@
                         <div class="col-lg-7 d-flex justify-content-center align-items-center">
                             <div class="card-body content-sign-in text-center">
 
-                                <form action="{{ url('/login') }}" method="POST">
+                                <form action="{{ url('/admin/login') }}" method="POST">
                                     @csrf
                                     <img src="{{ asset('assets/img/LogoGenoma.svg') }}" alt="logo genoma">
                                     <h5 class="card-title mb-2 mt-lg-4"></h5>
                                     <div class="form-floating rounded-5 mb-3">
-                                        <input type="email" class="form-control rounded-5 px-3" id="email"
+                                        <input type="email" name="email" id="email" class="form-control rounded-5 px-3"
                                             placeholder="example@email.com">
                                         <label class="px-3" for="email">Email address</label>
                                     </div>
                                     <div class="form-floating rounded-5 position-relative">
-                                        <input type="password" class="form-control rounded-5 px-3" id="password"
+                                        <input type="password" name="password" id="password" class="form-control rounded-5 px-3"
                                             placeholder="Password">
                                         <label class="px-3" for="password">Password</label>
                                         <i class="bi bi-eye position-absolute" id="togglePassword"
                                             style="right: 20px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                                     </div>
                                     <div class="d-grid">
-                                        <a href="admin-kuliner.html" class="btn button-primary mt-3">
+                                        <button type="submit" class="btn button-primary mt-3">
                                             Masuk<i class="bi bi-arrow-right ms-1"></i>
-                                        </a>
+                                        </button>
                                     </div>
 
                                 </form>
@@ -109,6 +112,7 @@
                 </div>
             </div>
         </div>
+
     </main>
 
     <!-- Vendor JS Files -->
