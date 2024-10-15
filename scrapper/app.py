@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from time import sleep
+import json
 
 def querySelector(rel, selector):
     return rel.find_element(By.CSS_SELECTOR, selector)
@@ -10,7 +12,14 @@ def querySelectorAll(rel, selector):
     return rel.find_elements(By.CSS_SELECTOR, selector)
 
 
-def scrap(url):
+def scrap(url, img_amount = 3):
+    place_name = None
+    place_rate = None
+    place_address = None
+    place_contact = None
+    schedules = {}
+    images = []
+
     driver = webdriver.Chrome()
     driver.get(url)
 
@@ -27,26 +36,55 @@ def scrap(url):
     place_address = e_place_address.text.strip()
     
     print("Get Place Contact...")
-    span = querySelector(driver, 'span.google-symbols.NhBTye.PHazN')
-    parent = span.find_element(By.XPATH, "./ancestor::div[@class='AeaXub']")
-    e_place_contact = querySelector(parent, 'div.Io6YTe')
-    place_contact = e_place_contact.text.strip()
+    try:
+        span = querySelector(driver, 'span.google-symbols.NhBTye.PHazN')
+        parent = span.find_element(By.XPATH, "./ancestor::div[@class='AeaXub']")
+        e_place_contact = querySelector(parent, 'div.Io6YTe')
+        place_contact = e_place_contact.text.strip()
+    except:
+        print("KContact not found!")
 
     print("Get Place Schedule...")
-    dropdown = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, '.OMl5r'))
-    )
-    dropdown.click()
+    try:
+        dropdown = WebDriverWait(driver, 5).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, '.OMl5r'))
+        )
+        dropdown.click()
 
-    table_rows = querySelectorAll(driver, 'table.eK4R0e tr')
-    schedules = {}
-    for row in table_rows:
-        e_day = querySelector(row, "td.ylH6lf div")
-        e_hours = querySelector(row, "td.mxowUb li")
-        day = e_day.text.strip()
-        hours = e_hours.text.strip()
+        table_rows = querySelectorAll(driver, 'table.eK4R0e tr')
+        for row in table_rows:
+            e_day = querySelector(row, "td.ylH6lf div")
+            e_hours = querySelector(row, "td.mxowUb li")
+            day = e_day.text.strip()
+            hours = e_hours.text.strip()
 
-        schedules[day] = hours.split('–')
+            schedules[day] = hours.split('–')
+    except:
+        print("Schedule not found!")
+
+    print("Get images url...")
+    try:
+        link = WebDriverWait(driver, 5).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.aoRNLd.kn2E5e.NMjTrf.lvtCsd'))
+        )
+        link.click()
+
+        image_containers = WebDriverWait(driver, 5).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.m6QErb.DxyBCb.kA9KIf.dS8AEf.XiKgde > div > div"))
+        )
+
+        for i in range(img_amount):
+            driver.execute_script("document.querySelector('div.m6QErb.DxyBCb.kA9KIf.dS8AEf.XiKgde').scrollBy(0, window.innerHeight)")
+            sleep(0.2)
+
+            div = WebDriverWait(image_containers[i], 5).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, 'a.OKAoZd > div.U39Pmb'))
+            )
+            src = div.get_attribute('style').strip().split('"')[1]
+
+            images.append(src)
+    except:
+        print("Failed to get images src!")
 
     driver.quit() 
 
@@ -55,7 +93,8 @@ def scrap(url):
         "place_rate": place_rate,
         "place_address": place_address,
         "place_contact": place_contact,
-        "schedules": schedules
+        "schedules": schedules,
+        "images": images
     }
 
 
@@ -66,9 +105,10 @@ app = Flask(__name__)
 @app.route('/scrapper', methods=['POST'])
 def get_data():
     url = request.form.get('url', False)
+    img = int(request.form.get('img', 3))
 
     if url:
-        data = scrap(url)
+        data = scrap(url, img)
     else:
         data = {
             "status" : "failed",
@@ -78,4 +118,9 @@ def get_data():
     return jsonify(data)
 
 if __name__ == '__main__':
-    app.run(port=4444)
+    # app.run(port=4444, debug=True)
+    url = input('Google Maps Link = ')
+    img = int(input('Img Amount       = '))
+    result = scrap(url, img)
+    data = json.dumps(result, indent=4)
+    open('result.json', 'w').write(data)

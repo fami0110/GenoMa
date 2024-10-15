@@ -4,7 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>GenoMa - {{ __("title-$current_page") }}</title>
+    @php
+        $segments = request()->segments();
+
+        $prefix = "";
+        if (in_array("admin", $segments))
+            $prefix = __('manage') . " ";
+        elseif (count($segments) == 2)
+            $prefix = "Detail ";
+    @endphp
+    <title>GenoMa - {{ $prefix . __("title-$current_page") }}</title>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="description" content="Frontend by GenoMa's Team" />
     <meta name="keywords" content="">
@@ -28,6 +37,11 @@
 
     <!-- Main CSS File -->
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+    <style>
+        * {
+            /* outline: 1px solid red; */
+        }
+    </style>
 
 </head>
 
@@ -54,12 +68,12 @@
 
                     @foreach ($routes as $key => $route)
                         <li>
-                            <a href="{{ url($route) }}" <?= ("title-$current_page" == $key) ? 'class="active"' : '' ?>>
+                            <a href="{{ url($route) }}" <?= ("title-$current_page" == $key && !in_array("admin", $segments)) ? 'class="active"' : '' ?>>
                                 {{ __($key) }}
                             </a>
                         </li>
                     @endforeach
-
+                    
                     <li class="dropdown">
                         <a>
                             <span>
@@ -77,6 +91,20 @@
                             </li>
                         </ul>
                     </li>
+
+                    @if (auth()->check())
+                        <li class="dropdown ms-0">
+                            <a href="#"><span>Menu Admin</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                                @foreach ($routes as $key => $route)
+                                    <?php if ($route == "/") continue; ?>
+                                    <li><a href="{{ url("/admin$route") }}">{{ __('manage') ." ". __($key) }}</a></li>
+                                @endforeach
+                                <li class="border-top"><a href="{{ url('/logout') }}">Keluar</a></li>
+                            </ul>
+                        </li>
+                    @endif
+
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>

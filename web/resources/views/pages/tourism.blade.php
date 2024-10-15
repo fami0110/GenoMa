@@ -3,7 +3,7 @@
 @section('content')
     
     <main class="main">
-        @include('template.banner', ['options' => 'with_hero'])
+        @include('template.banner')
     </main>
 
 @endsection

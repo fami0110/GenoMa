@@ -38,18 +38,19 @@ Route::middleware('localization')->group(function() {
     Route::get('/culinary/{id}', [CulinaryController::class, 'show']);
 
     Route::get('/locale/{lang}', [LocalController::class, 'change']);
+
+    Route::get('/logout', [LoginController::class, 'logout'])->middleware('admin');
     
+    Route::middleware('guest')->group(function() {
+        Route::get('/login', [LoginController::class, 'index']); 
+        Route::post('/login', [LoginController::class, 'process']); 
+    });
+
     // Route::get('/contact', [HomeController::class, 'index']);
     // Route::post('/contact', [HomeController::class, 'index']);
     
     Route::prefix('admin')->group(function () {
-        Route::middleware('guest')->group(function() {
-            Route::get('/login', [LoginController::class, 'index']); 
-            Route::post('/login', [LoginController::class, 'process']); 
-        });
-
         Route::middleware('admin')->group(function () {
-            Route::get('/logout', [LoginController::class, 'logout']);
 
             Route::get('/tourism', [TourismController::class, 'admin']);
             Route::post('/tourism/{id}', [TourismController::class, 'store']);

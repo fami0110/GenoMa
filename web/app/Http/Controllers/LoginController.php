@@ -38,6 +38,6 @@ class LoginController extends Controller
 
         $req->session()->regenerate();
 
-        return redirect()->to('/admin/login')->with('success', "Logout successful!");
+        return redirect()->to('/login')->with('success', "Logout successful!");
     }
 }

@@ -76,24 +76,25 @@
                 <div class="card card-sign-in shadow-sm border-0 mb-3 rounded-4">
                     <div class="row g-0">
                         <div class="col-lg-5">
-                            <img src="{{ asset('assets/img/bromo.jpg') }}" class="img-sign-in rounded-4 shadow-sm"
-                                alt="...">
+                            <img src="{{ asset('assets/img/bromo.jpg') }}" class="img-sign-in rounded-4 shadow-sm" alt="Login Banner Image">
                         </div>
                         <div class="col-lg-7 d-flex justify-content-center align-items-center">
                             <div class="card-body content-sign-in text-center">
 
-                                <form action="{{ url('/admin/login') }}" method="POST">
+                                <form action="{{ url('/login') }}" method="POST">
                                     @csrf
-                                    <img src="{{ asset('assets/img/LogoGenoma.svg') }}" alt="logo genoma">
+                                    <a href="{{ url('/') }}">
+                                        <img src="{{ asset('assets/img/LogoGenoma.svg') }}" alt="logo genoma">
+                                    </a>
                                     <h5 class="card-title mb-2 mt-lg-4"></h5>
                                     <div class="form-floating rounded-5 mb-3">
                                         <input type="email" name="email" id="email" class="form-control rounded-5 px-3"
-                                            placeholder="example@email.com">
+                                            placeholder="example@email.com" required>
                                         <label class="px-3" for="email">Email address</label>
                                     </div>
                                     <div class="form-floating rounded-5 position-relative">
                                         <input type="password" name="password" id="password" class="form-control rounded-5 px-3"
-                                            placeholder="Password">
+                                            placeholder="password" required>
                                         <label class="px-3" for="password">Password</label>
                                         <i class="bi bi-eye position-absolute" id="togglePassword"
                                             style="right: 20px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
