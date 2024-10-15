@@ -1,5 +1,6 @@
 (function () {
   "use strict";
+  
   function toggleScrolled() {
     const selectBody = document.querySelector("body");
     const selectHeader = document.querySelector("#header");
@@ -13,6 +14,15 @@
       ? selectBody.classList.add("scrolled")
       : selectBody.classList.remove("scrolled");
   }
+
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
 
   document.addEventListener("scroll", toggleScrolled);
   window.addEventListener("load", toggleScrolled);
@@ -220,7 +230,7 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
       ".input-group button#button-addon2"
     );
     const searchInput = document.querySelector(
-      '.input-group input[placeholder="Type here..."]'
+      '.input-group input[placeholder="Ketik di sini..."]'
     );
 
     searchButton.addEventListener("click", function () {
@@ -228,7 +238,7 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
     });
 
     searchInput.addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {  
+      if (event.key === "Enter") {
         executeSearch();
       }
     });
@@ -259,3 +269,144 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
 
   });
 });
+
+/**
+ * Init swiper sliders
+ */
+function initSwiper() {
+  document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
+    let config = JSON.parse(
+      swiperElement.querySelector(".swiper-config").innerHTML.trim()
+    );
+
+    if (swiperElement.classList.contains("swiper-tab")) {
+      initSwiperWithCustomPagination(swiperElement, config);
+    } else {
+      new Swiper(swiperElement, config);
+    }
+  });
+}
+
+window.addEventListener("load", initSwiper);
+
+
+// Light and dark mode
+
+function setMode(mode) {
+  const setVar = (varName, value) => {document.documentElement.style.setProperty(varName, value)};
+  // dark mode
+  if (mode === 'dark') {    
+    setVar('--background-color', '#1e1e1e');
+    setVar('--default-color', '#ffffff');
+    setVar('--heading-color', '#ffffff');
+    setVar('--surface-color', '#252525');
+    setVar('--filter-color', '#ffff');
+    setVar('--filter-hover-color', '#1e1e1e');
+    setVar('--nav-color', '#ffff');
+    setVar('--nav-hover-color', '#c1ceea');
+    setVar('--nav-mobile-background-color', '#1E1E1E');
+    setVar('--nav-dropdown-background-color', '#252525');
+    setVar('--nav-dropdown-color', '#ffffff');
+    setVar('--nav-dropdown-hover-color', '#c1ceea');
+    setVar('--nav-mobile-text-color', '#000000b5');
+    setVar('--background-transparent-color', '#000000ab');
+    setVar('--title-color', '#4870B7');
+    setVar('--nav-shadow', '#ffffff1c');
+    setVar('--table-bg-color', '#2b2b2b');
+    setVar('--table-text-color', '#eeeeee');
+    setVar('--thead-bg-color', '#272626');
+    setVar('--thead-text-color', '#eeeeee');
+
+    // dark asset
+    const aboutImage = document.querySelector('.about-image');
+    if (aboutImage)
+      aboutImage.src = 'assets/img/asset-dark.svg';
+
+    const aboutImageMobile = document.querySelector('.about-image-mobile');
+    if (aboutImageMobile)
+      aboutImageMobile.src = 'assets/img/asset-dark-mobile.svg';
+
+    const assetHeroImage = document.querySelector('.asset-hero-image');
+    if (assetHeroImage)
+      assetHeroImage.src = 'assets/img/asset-dark-hero.svg';
+
+  } else {
+    // light mode
+    setVar('--background-color', '#f8fafc');
+    setVar('--default-color', '#3d4348');
+    setVar('--heading-color', '#3e5055');
+    setVar('--surface-color', '#ffffff');
+    setVar('--filter-color', '#02287A');
+    setVar('--filter-hover-color', '#f8fafc');
+    setVar('--nav-color', '#000000');
+    setVar('--nav-hover-color', '#02287A');
+    setVar('--nav-mobile-background-color', '#ffffff');
+    setVar('--nav-dropdown-background-color', '#ffffff');
+    setVar('--nav-dropdown-color', '#313336');
+    setVar('--nav-dropdown-hover-color', '#02287A');
+    setVar('--nav-mobile-text-color', '#ffffffb5');
+    setVar('--background-transparent-color', '#a7bfd7da ');
+    setVar('--title-color', '#02287A');
+    setVar('--nav-shadow', '#0000001a');
+    setVar('--table-bg-color', '#ffffff');
+    setVar('--table-text-color', '#000000');
+    setVar('--thead-bg-color', '#f8f9fa');
+    setVar('--thead-text-color', '#000000');
+
+    // light asset
+    const aboutImage = document.querySelector('.about-image');
+    if (aboutImage)
+      aboutImage.src = 'assets/img/asset-light.svg';
+
+    const aboutImageMobile = document.querySelector('.about-image-mobile');
+    if (aboutImageMobile)
+      aboutImageMobile.src = 'assets/img/asset-light-mobile.svg';
+
+    const assetHeroImage = document.querySelector('.asset-hero-image');
+    if (assetHeroImage)
+      assetHeroImage.src = 'assets/img/asset-light-hero.svg';
+  }
+
+  localStorage.setItem('themeMode', mode);
+}
+
+function toggleMode() {
+  const currentMode = localStorage.getItem('themeMode') || 'light';
+  const newMode = currentMode === 'light' ? 'dark' : 'light';
+  setMode(newMode);
+
+  const themeIcon = document.getElementById('theme-icon');
+  themeIcon.classList.add('rotating');
+
+  setTimeout(() => {
+    themeIcon.classList.remove('rotating');
+    themeIcon.className = newMode === 'light' ? 'bi bi-brightness-high' : 'bi bi-moon';
+  }, 500);
+}
+
+
+function loadMode() {
+  const savedMode = localStorage.getItem('themeMode') || 'light';
+  setMode(savedMode);
+
+  const themeIcon = document.getElementById('theme-icon');
+  themeIcon.className = savedMode === 'light' ? 'bi bi-brightness-high' : 'bi bi-moon';
+}
+
+window.addEventListener('DOMContentLoaded', loadMode);
+
+
+// Init typed
+
+const selectTyped = document.querySelector('.typed');
+if (selectTyped) {
+  let typed_strings = selectTyped.getAttribute('data-typed-items');
+  typed_strings = typed_strings.split(',');
+  new Typed('.typed', {
+    strings: typed_strings,
+    loop: true,
+    typeSpeed: 100,
+    backSpeed: 50,
+    backDelay: 2000
+  });
+}

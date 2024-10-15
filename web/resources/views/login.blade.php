@@ -9,15 +9,9 @@
     <meta name="description" content="Frontend by GenoMa's Team" />
     <meta name="keywords" content="">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link href="" rel="icon">
+    <link href="" rel="apple-touch-icon">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -43,7 +37,7 @@
         }
 
         .card-sign-in {
-            background-color: rgba(255, 255, 255, 0.187);
+            background-color: rgba(9, 43, 112, 0.2);
             backdrop-filter: blur(40px);
             border: 1px solid rgba(75, 75, 75, 0.3);
         }
@@ -62,11 +56,23 @@
             font-size: 1.2rem;
             color: rgba(0, 0, 0, 0.5);
         }
+
+        .form-control {
+            background-color: #ffff;
+            border: 1px solid #ffff;
+            transition: all 0.3s ease;
+        }
+
+        label::after {
+            background-color: transparent !important;
+            font-weight: bold !important;
+        }
     </style>
 
 </head>
 
 <body>
+
     <main class="main">
 
         @include('template.flasher')
@@ -76,11 +82,11 @@
                 <div class="card card-sign-in shadow-sm border-0 mb-3 rounded-4">
                     <div class="row g-0">
                         <div class="col-lg-5">
-                            <img src="{{ asset('assets/img/bromo.jpg') }}" class="img-sign-in rounded-4 shadow-sm" alt="Login Banner Image">
+                            <img src="{{ asset('assets/img/East Java Tours with Bromo Photography, Ijen Blue Fire and Waterfall.jpg') }}"
+                                class="img-sign-in rounded-4 shadow-sm" alt="...">
                         </div>
                         <div class="col-lg-7 d-flex justify-content-center align-items-center">
                             <div class="card-body content-sign-in text-center">
-
                                 <form action="{{ url('/login') }}" method="POST">
                                     @csrf
                                     <a href="{{ url('/') }}">
@@ -104,24 +110,102 @@
                                             Masuk<i class="bi bi-arrow-right ms-1"></i>
                                         </button>
                                     </div>
-
                                 </form>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
 
     <!-- Vendor JS Files -->
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
 
-    <!-- Main JS File -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script>
+        function setMode(mode) {
+            const setVar = (varName, value) => {document.documentElement.style.setProperty(varName, value)};
+            // dark mode
+            if (mode === 'dark') {    
+                setVar('--background-color', '#1e1e1e');
+                setVar('--default-color', '#ffffff');
+                setVar('--heading-color', '#ffffff');
+                setVar('--surface-color', '#252525');
+                setVar('--filter-color', '#ffff');
+                setVar('--filter-hover-color', '#1e1e1e');
+                setVar('--nav-color', '#ffff');
+                setVar('--nav-hover-color', '#c1ceea');
+                setVar('--nav-mobile-background-color', '#1E1E1E');
+                setVar('--nav-dropdown-background-color', '#252525');
+                setVar('--nav-dropdown-color', '#ffffff');
+                setVar('--nav-dropdown-hover-color', '#c1ceea');
+                setVar('--nav-mobile-text-color', '#000000b5');
+                setVar('--background-transparent-color', '#000000ab');
+                setVar('--title-color', '#4870B7');
+                setVar('--nav-shadow', '#ffffff1c');
+                setVar('--table-bg-color', '#2b2b2b');
+                setVar('--table-text-color', '#eeeeee');
+                setVar('--thead-bg-color', '#272626');
+                setVar('--thead-text-color', '#eeeeee');
+
+                // dark asset
+                const aboutImage = document.querySelector('.about-image');
+                if (aboutImage)
+                aboutImage.src = 'assets/img/asset-dark.svg';
+
+                const aboutImageMobile = document.querySelector('.about-image-mobile');
+                if (aboutImageMobile)
+                aboutImageMobile.src = 'assets/img/asset-dark-mobile.svg';
+
+                const assetHeroImage = document.querySelector('.asset-hero-image');
+                if (assetHeroImage)
+                assetHeroImage.src = 'assets/img/asset-dark-hero.svg';
+
+            } else {
+                // light mode
+                setVar('--background-color', '#f8fafc');
+                setVar('--default-color', '#3d4348');
+                setVar('--heading-color', '#3e5055');
+                setVar('--surface-color', '#ffffff');
+                setVar('--filter-color', '#02287A');
+                setVar('--filter-hover-color', '#f8fafc');
+                setVar('--nav-color', '#000000');
+                setVar('--nav-hover-color', '#02287A');
+                setVar('--nav-mobile-background-color', '#ffffff');
+                setVar('--nav-dropdown-background-color', '#ffffff');
+                setVar('--nav-dropdown-color', '#313336');
+                setVar('--nav-dropdown-hover-color', '#02287A');
+                setVar('--nav-mobile-text-color', '#ffffffb5');
+                setVar('--background-transparent-color', '#a7bfd7da ');
+                setVar('--title-color', '#02287A');
+                setVar('--nav-shadow', '#0000001a');
+                setVar('--table-bg-color', '#ffffff');
+                setVar('--table-text-color', '#000000');
+                setVar('--thead-bg-color', '#f8f9fa');
+                setVar('--thead-text-color', '#000000');
+
+                // light asset
+                const aboutImage = document.querySelector('.about-image');
+                if (aboutImage)
+                aboutImage.src = 'assets/img/asset-light.svg';
+
+                const aboutImageMobile = document.querySelector('.about-image-mobile');
+                if (aboutImageMobile)
+                aboutImageMobile.src = 'assets/img/asset-light-mobile.svg';
+
+                const assetHeroImage = document.querySelector('.asset-hero-image');
+                if (assetHeroImage)
+                assetHeroImage.src = 'assets/img/asset-light-hero.svg';
+            }
+
+            localStorage.setItem('themeMode', mode);
+        }
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedMode = localStorage.getItem('themeMode') || 'light';
+            setMode(savedMode);
+        });
+    </script>
 
     <script>
         const togglePassword = document.querySelector('#togglePassword');

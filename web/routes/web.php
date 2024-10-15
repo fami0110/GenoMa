@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CulinaryController;
 use App\Http\Controllers\CulturesController;
 use App\Http\Controllers\HomeController;
@@ -46,8 +47,8 @@ Route::middleware('localization')->group(function() {
         Route::post('/login', [LoginController::class, 'process']); 
     });
 
-    // Route::get('/contact', [HomeController::class, 'index']);
-    // Route::post('/contact', [HomeController::class, 'index']);
+    Route::get('/contact', [ContactController::class, 'index']);
+    Route::post('/contact', [ContactController::class, 'process']);
     
     Route::prefix('admin')->group(function () {
         Route::middleware('admin')->group(function () {
