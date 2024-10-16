@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Culinary;
 use Illuminate\Http\Request;
 
 class CulinaryController extends Controller
@@ -27,11 +28,22 @@ class CulinaryController extends Controller
     }
 
     /**
+     * Get the specified resource.
+     */
+    public function get(string $id)
+    {
+        return json_encode(Culinary::where('id', $id)->first());
+    }
+
+    /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
+        $data = Culinary::where('id', $id)->first();
+
         return view('details.culinary', [
+            'data' => $data,
             'current_page' => 'culinary',
         ]);
     }

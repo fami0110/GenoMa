@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cultures;
 use Illuminate\Http\Request;
 
 class CulturesController extends Controller
@@ -11,7 +12,10 @@ class CulturesController extends Controller
      */
     public function index()
     {
+        $data = Cultures::orderBy('is_recomended')->get();
+
         return view('pages.cultures', [
+            'data' => $data,
             'current_page' => 'cultures',
         ]);
     }
@@ -21,9 +25,20 @@ class CulturesController extends Controller
      */
     public function admin()
     {
+        $data = Cultures::orderBy('is_recomended')->get();
+
         return view('admin.cultures', [
+            'data' => $data,
             'current_page' => 'cultures',
         ]);
+    }
+
+    /**
+     * Get the specified resource.
+     */
+    public function get(string $id)
+    {
+        return json_encode(Cultures::where('id', $id)->first());
     }
 
     /**
@@ -31,7 +46,10 @@ class CulturesController extends Controller
      */
     public function show(string $id)
     {
+        $data = Cultures::where('id', $id)->first();
+
         return view('details.cultures', [
+            'data' => $data,
             'current_page' => 'cultures',
         ]);
     }

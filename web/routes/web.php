@@ -54,24 +54,29 @@ Route::middleware('localization')->group(function() {
         Route::middleware('admin')->group(function () {
 
             Route::get('/tourism', [TourismController::class, 'admin']);
-            Route::post('/tourism/{id}', [TourismController::class, 'store']);
+            Route::get('/tourism/{id}/get', [TourismController::class, 'get']);
+            Route::post('/tourism', [TourismController::class, 'store']);
             Route::put('/tourism/{id}', [TourismController::class, 'update']);
-            Route::delete('/tourism/{id}', [TourismController::class, 'delete']);
+            Route::delete('/tourism/{id}', [TourismController::class, 'destroy']);
             
             Route::get('/msmes', [MsmesController::class, 'admin']);
-            Route::post('/msmes/{id}', [MsmesController::class, 'store']);
+            Route::get('/msmes/{id}/get', [MsmesController::class, 'get']);
+            Route::post('/msmes', [MsmesController::class, 'store']);
             Route::put('/msmes/{id}', [MsmesController::class, 'update']);
-            Route::delete('/msmes/{id}', [MsmesController::class, 'delete']);
+            Route::delete('/msmes/{id}', [MsmesController::class, 'destroy']);
             
             Route::get('/cultures', [CulturesController::class, 'admin']);
-            Route::post('/cultures/{id}', [CulturesController::class, 'store']);
+            Route::get('/cultures/{id}/get', [CulturesController::class, 'get']);
+            Route::post('/cultures', [CulturesController::class, 'store']);
             Route::put('/cultures/{id}', [CulturesController::class, 'update']);
-            Route::delete('/cultures/{id}', [CulturesController::class, 'delete']);
+            Route::delete('/cultures/{id}', [CulturesController::class, 'destroy']);
             
-            Route::get('/culinary ', [CulinaryController::class, 'admin']);
-            Route::post('/culinary/{id}', [CulinaryController::class, 'store']);
+            Route::get('/culinary', [CulinaryController::class, 'admin']);
+            Route::get('/culinary/{id}/get', [CulinaryController::class, 'get']);
+            Route::post('/culinary', [CulinaryController::class, 'store']);
             Route::put('/culinary/{id}', [CulinaryController::class, 'update']);
-            Route::delete('/culinary/{id}', [CulinaryController::class, 'delete']);
+            Route::delete('/culinary/{id}', [CulinaryController::class, 'destroy']);
+            
         });
 
     });

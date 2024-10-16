@@ -18,8 +18,8 @@ return new class extends Migration
             $table->json('photos');
             $table->string('link', 50);
             $table->string('address', 100);
-            $table->float('longitude');
-            $table->float('latitude') ;
+            $table->double('longitude');
+            $table->double('latitude') ;
             $table->integer('price_min');
             $table->integer('price_max');
             $table->json('facilities');

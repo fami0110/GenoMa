@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('link', 50);
             $table->string('alamat', 100);
             $table->string('contact', 50);
-            $table->float('longitude');
-            $table->float('latitude') ;
+            $table->double('longitude');
+            $table->double('latitude') ;
             $table->integer('price_min');
             $table->integer('price_max');
             $table->json('facility');

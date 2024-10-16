@@ -159,7 +159,7 @@
             </div>
 
             <div class="image-text-container">
-                <img src="{{ asset('assets/img/bromo-pariwisata.svg') }}" loading="lazy" draggable="false" alt="Bromo Pariwisata">
+                <img src="{{ asset('assets/img/bromo-pariwisata.webp') }}" loading="lazy" draggable="false" alt="Bromo Pariwisata">
                 <p class="text-white" data-aos="fade-up" data-aos-delay="200">
                     {{ __('home-tourism-desc') }}
                 </p>
@@ -178,7 +178,7 @@
                     <div class="col-lg-3 col-md-6 col-12 col-kuliner">
                         <div class="card card-kuliner rounded-4" data-aos="fade-up" data-aos-delay="100">
                             <div class="image-container">
-                                <img src="{{ asset('assets/img/1.svg') }}" loading="lazy" class="card-img-kuliner"
+                                <img src="{{ asset('assets/img/1.webp') }}" loading="lazy" class="card-img-kuliner"
                                     alt="Nasi Goreng Mawut" draggable="false">
                             </div>
                             <div class="card-body text-center">
@@ -190,7 +190,7 @@
                     <div class="col-lg-3 col-md-6 col-12 col-kuliner">
                         <div class="card card-kuliner rounded-4" data-aos="fade-up" data-aos-delay="200">
                             <div class="image-container">
-                                <img src="{{ asset('assets/img/2.svg') }}" loading="lazy" class="card-img-kuliner" alt="Bakso Malang"
+                                <img src="{{ asset('assets/img/2.webp') }}" loading="lazy" class="card-img-kuliner" alt="Bakso Malang"
                                     draggable="false">
                             </div>
                             <div class="card-body text-center">
@@ -202,7 +202,7 @@
                     <div class="col-lg-3 col-md-6 col-12 col-kuliner">
                         <div class="card card-kuliner rounded-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="image-container">
-                                <img src="{{ asset('assets/img/3.svg') }}" loading="lazy" class="card-img-kuliner" alt="Angsle"
+                                <img src="{{ asset('assets/img/3.webp') }}" loading="lazy" class="card-img-kuliner" alt="Angsle"
                                     draggable="false">
                             </div>
                             <div class="card-body text-center">
@@ -214,7 +214,7 @@
                     <div class="col-lg-3 col-md-6 col-12 col-kuliner">
                         <div class="card card-kuliner rounded-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="400">
                             <div class="image-container">
-                                <img src="{{ asset('assets/img/4.svg') }}" loading="lazy" class="card-img-kuliner" alt="Rawon Dengkul"
+                                <img src="{{ asset('assets/img/4.webp') }}" loading="lazy" class="card-img-kuliner" alt="Rawon Dengkul"
                                     draggable="false">
                             </div>
                             <div class="card-body text-center">
@@ -311,7 +311,7 @@
             <div class="container">
                 <div class="row justify-content-between align-items-center text-center text-lg-start g-5">
                     <div class="col-lg-4 text-lg-end mt-0" data-aos="fade-up" data-aos-delay="100">
-                        <img src="{{ asset('assets/img/macito.svg') }}" loading="lazy" alt="macito" draggable="false">
+                        <img src="{{ asset('assets/img/macito.webp') }}" loading="lazy" alt="macito" draggable="false">
                     </div>
                     <div class="col-lg-8">
                         <div class="title-landing" data-aos="fade-up" data-aos-delay="200">

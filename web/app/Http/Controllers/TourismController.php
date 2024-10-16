@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tourism;
 use Illuminate\Http\Request;
 
 class TourismController extends Controller
@@ -11,7 +12,10 @@ class TourismController extends Controller
      */
     public function index()
     {
+        $data = Tourism::orderBy('is_recomended')->get();
+
         return view('pages.tourism', [
+            'data' => $data,
             'current_page' => 'tourism',
         ]);
     }
@@ -21,9 +25,20 @@ class TourismController extends Controller
      */
     public function admin()
     {
+        $data = Tourism::orderBy('is_recomended')->get();
+
         return view('admin.tourism', [
+            'data' => $data,
             'current_page' => 'tourism',
         ]);
+    }
+
+    /**
+     * Get the specified resource.
+     */
+    public function get(string $id)
+    {
+        return json_encode(Tourism::where('id', $id)->first());
     }
 
     /**
@@ -31,7 +46,10 @@ class TourismController extends Controller
      */
     public function show(string $id)
     {
+        $data = Tourism::where('id', $id)->first();
+
         return view('details.tourism', [
+            'data' => $data,
             'current_page' => 'tourism',
         ]);
     }

@@ -18,6 +18,7 @@
     <title>GenoMa - {{ $prefix . __("title-$current_page") }}</title>
     <meta name="description" content="Frontend by GenoMa's Team" />
     <meta name="keywords" content="GenoMa">
+    <meta name="baseurl" content="{{ env('APP_URL') }}">
 
     <!-- Favicons -->
     <link href="" rel="icon">
@@ -111,7 +112,7 @@
                 </ul>
                 <div class="mode-toggle ms-4 mt-2">
                     <a id="mode-toggle" onclick="toggleMode()">
-                        <i class="bi bi-brightness-high mode-toggle-icon" style="font-size: large; font-weight: bold;"
+                        <i class="bi bi-brightness-high mode-toggle-icon" style="font-size: large; font-weight: bold; margin: 0;"
                             id="theme-icon"></i>
                     </a>
                 </div>
