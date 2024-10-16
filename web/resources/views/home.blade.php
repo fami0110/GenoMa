@@ -145,6 +145,16 @@
 
                         </div>
                     </div>
+
+                    <div class="col-12 mt-5 row justify-content-center">
+                        <div class="col-12 col-md-5">
+                            <div class="d-grid">
+                                <a href="{{ url('/culinary') }}" class="btn button-primary fs-5" data-aos="fade-up"
+                                    data-aos-delay="200">{{ __('see-more') }} <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

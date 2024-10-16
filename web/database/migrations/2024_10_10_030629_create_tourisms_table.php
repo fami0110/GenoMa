@@ -17,12 +17,12 @@ return new class extends Migration
             $table->string('category', 15);
             $table->json('photos');
             $table->string('link', 50);
-            $table->string('alamat', 100);
+            $table->string('address', 100);
             $table->float('longitude');
             $table->float('latitude') ;
             $table->integer('price_min');
             $table->integer('price_max');
-            $table->json('facility');
+            $table->json('facilities');
             $table->float('rate');
             $table->boolean('is_recomended');
             $table->timestamps();

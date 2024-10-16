@@ -53,8 +53,8 @@
 <div id="preloader"></div>
 
 <!-- Vendor JS Files -->
-<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}" defer></script>
+<script src="{{ asset('assets/vendor/aos/aos.js') }}" defer></script>
 
 <!-- Main JS File -->
 <script src="{{ asset('assets/js/main.js') }}" defer></script>

@@ -76,8 +76,14 @@
     <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}" defer></script>
 
     <!-- Datatables -->
-    <script src="{{ asset('assets/vendor/DataTables/jquery.js') }}" defer></script>
-    <script src="{{ asset('assets/vendor/DataTables/datatables.min.js') }}" defer></script>
+    <script src="{{ asset('assets/vendor/DataTables/jquery.js') }}"></script>
+    <script src="{{ asset('assets/vendor/DataTables/datatables.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#datatables').DataTable();
+        });
+    </script>
 
     
 @endsection
