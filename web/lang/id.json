@@ -4,7 +4,7 @@
     "title-msmes": "UMKM",
     "title-cultures": "Budaya",
     "title-culinary": "Kuliner",
-    "title-contact": "Contact",
+    "title-contact": "Kontak",
 
     "manage": "Kelola",
     "see-more": "Lihat Selengkapnya",
@@ -50,6 +50,11 @@
     "day-fri": "Jumat",
     "day-sat": "Sabtu",
     "day-sun": "Minggu",
+
+    "contact-send": "Kirim",
+    "contact-suggest": "Rekomendasi / Saran",
+    "contact-desc": "Kirim Rekomendasi tempat pariwisata, UMKM, ataupun Kuliner yang ada di Malang, bagikan kepada kami agar lebih banyak orang bisa mengetahui dan menikmati keunikan yang ada di kota ini!",
+    "contact-enter": "Masukkan Email Anda",
 
     "footer-link": "Tautan",
     "footer-1": "Kota Malang, sebagai kota terbesar kedua di Jawa Timur dan terbesar ke-12 di Indonesia, merupakan pusat perkotaan yang ramai dan kaya akan makna budaya, sejarah, dan ekonomi.",

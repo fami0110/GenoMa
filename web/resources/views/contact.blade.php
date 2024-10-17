@@ -13,10 +13,8 @@
                     </div>
                     <div class="col-xl-7 col-md-12">
                         <div class="title-landing">
-                            <h3 class="fs-2 primary-text-color">Kirim Rekomendasi / Saran</h3>
-                            <p>Kirim Rekomendasi tempat pariwisata, UMKM, ataupun Kuliner yang ada di Malang, bagikan kepada
-                                kami agar lebih banyak orang bisa mengetahui dan menikmati keunikan yang ada di kota ini!
-                            </p>
+                            <h3 class="fs-2 primary-text-color">{{ __('contact-send') ." ". __('contact-suggest') }}</h3>
+                            <p>{{ __('contact-desc') }}</p>
                         </div>
                         <div class="card rounded-4 card-kontak shadow py-2">
                             <div class="card-body">
@@ -24,10 +22,10 @@
                                     <div class="mb-4">
                                         <label for="email-pengirim" class="form-label">Email</label>
                                         <input type="email" class="form-control rounded-5" id="email-pengirim"
-                                            placeholder="Masukkan Email Anda">
+                                            placeholder="{{ __('contact-enter') }}">
                                     </div>
                                     <div class="mb-4">
-                                        <label for="rekomendasi" class="form-label">Saran / Rekomendasi</label>
+                                        <label for="rekomendasi" class="form-label">{{ __('contact-suggest') }}</label>
                                         <textarea class="form-control rounded-4" id="rekomendasi" rows="5"></textarea>
                                     </div>
                                     <div class="d-grid">
