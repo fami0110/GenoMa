@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('price_min');
             $table->integer('price_max');
             $table->json('facilities');
-            $table->double('rate');
+            $table->float('rate');
             $table->boolean('is_recomended');
             $table->timestamps();
         });

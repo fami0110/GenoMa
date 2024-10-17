@@ -9,4 +9,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Culinary extends Model
 {
     use HasFactory, HasUuids;
+
+    protected $fillable = [
+        'name',
+        'category',
+        'photos',
+        'description',
+        'link',
+        'address',
+        'contact',
+        'longitude',
+        'latitude',
+        'price_min',
+        'price_max',
+        'schedules',
+        'rate',
+        'is_recomended',
+    ];
 }

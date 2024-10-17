@@ -8,7 +8,6 @@ use App\Http\Controllers\LocalController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MsmesController;
 use App\Http\Controllers\TourismController;
-use App\Models\Culinary;
 use Illuminate\Support\Facades\Route;
 
 /*

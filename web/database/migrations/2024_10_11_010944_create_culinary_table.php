@@ -11,20 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('culinary', function (Blueprint $table) {
+        Schema::create('culinaries', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name', 50);
             $table->string('category', 15);
             $table->json('photos');
             $table->string('description', 500);
             $table->string('link', 50);
-            $table->string('alamat', 100);
+            $table->string('address', 100);
             $table->string('contact', 50);
             $table->double('longitude');
             $table->double('latitude') ;
             $table->integer('price_min');
             $table->integer('price_max');
-            $table->json('facility');
+            $table->json('schedules');
             $table->float('rate');
             $table->boolean('is_recomended');
             $table->timestamps();
@@ -36,7 +36,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('culinary');
+        Schema::dropIfExists('culinaries');
     }
 };
 
