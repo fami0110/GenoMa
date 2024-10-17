@@ -1909,7 +1909,7 @@ table.dataTable thead>tr>td.dt-orderable-desc {
   color: var(--thead-text-color);
 }
 
-div.dt-container.dt-empty-footer tbody>tr:last-child>* {
+div.dt-container.dt-empty-footer tbody > tr > * {
   background-color: var(--thead-bg-color);
   color: var(--thead-text-color);
 }
@@ -2024,7 +2024,37 @@ div.dt-container.dt-empty-footer tbody>tr:last-child>* {
   }
 }
 
-.ck.ck-editor__main>.ck-editor__editable {
-  background: var(--table-bg-color);
+/* trix editor */
 
+.trix-button-row  span[data-trix-button-group="file-tools"] {
+  display: none;
+}
+
+body.dark-mode .trix-button-row button::before {
+  filter: invert(1);
+}
+
+body.dark-mode .trix-button-row button {
+  background-color: var(--background-color);
+}
+
+body.dark-mode .trix-button-row button.trix-active,
+body.dark-mode .trix-dialog {
+  background-color: var(--thead-bg-color);
+}
+
+body.dark-mode .trix-dialog * {
+  background-color: transparent;
+  color: var(--default-color);
+}
+
+/* img bg loader */
+
+.bg-loading {
+  animation: backgroundAnimation 0.8s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+  0% { background-color: #666666; }
+  100% { background-color: #bbbbbb; }
 }

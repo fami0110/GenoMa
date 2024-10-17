@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class MsmesController extends Controller
 {
+    /**
+     * Get validation rules
+     */
     protected function getValidationRules($create = false) {
         return [
             'name' => 'required|string|max:50',
@@ -64,7 +67,7 @@ class MsmesController extends Controller
      */
     public function get(string $id)
     {
-        return json_encode(Msmes::where('id', $id)->first());
+        return json_encode(Msmes::find($id));
     }
 
     /**
@@ -72,7 +75,7 @@ class MsmesController extends Controller
      */
     public function show(string $id)
     {
-        $data = Msmes::where('id', $id)->first();
+        $data = Msmes::find($id);
 
         return view('details.msmes', [
             'data' => $data,

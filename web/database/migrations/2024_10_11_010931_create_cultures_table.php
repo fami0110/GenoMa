@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name', 50);
             $table->string('category', 15);
-            $table->json('photos');
+            $table->string('cover', 50);
             $table->text('content');
             $table->timestamps();
         });

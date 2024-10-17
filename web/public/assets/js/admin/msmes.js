@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Data config
         $('#formModal input[name="_method"]').val("POST");
         $('#cover').attr('required', true);
+        $('#formModalLabel').text('Tambah Data');
         
         // Set action
         const form = $('#formModal form');
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Data config
         $('#formModal input[name="_method"]').val("PUT");
         $('#cover').attr('required', false);
+        $('#formModalLabel').text('Ubah Data');
         const id = $(this).data('id');
 
         // Set action
@@ -75,14 +77,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // DELETE BUTTON EVENT
+    
     $('.delete-btn').on('click', function() {
         const form = $(this)[0].closest('form');
         Swal.fire({
-            title: "Warning!",
-            text: "Are you sure want to delete this data?",
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Save",
+            confirmButtonText: "Yes",
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
         })
         .then((res) => {
             if (res.isConfirmed)
@@ -159,11 +164,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
     // DECIMAL INPUT
+    
     $('.decimal-input').on('input', function() {
         const input = $(this);
-        let sanitizedVal = input.val().replace(/(?:-)[^0-9.]/g, '');
-    
-        sanitizedVal = sanitizedVal.replace(/\..*(\.)/g, '$1');
+        let sanitizedVal = input.val()
+            .replace(/(?!^-)[^-0-9.]/g, '')  // Allow a minus sign only at the beginning
+            .replace(/(\..*)\./g, '$1') // Ensure only one decimal point
+            .replace(/^-+/g, '-') // Ensure only one minus sign at the beginning
+            .replace(/(?!^)-/g, ''); // Prevent negative signs not at the beginning
     
         input.val(sanitizedVal);
     });
@@ -171,19 +179,19 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // SCHEDULES LOGIC //
 
-    const container = document.querySelector('#schedules');
+    const schedules = document.querySelector('#schedules');
 
     function refreshEventSchedules() {
         // Delete Schedules
-        container.querySelectorAll('button.delete-schedule-btn').forEach(btn => {
+        schedules.querySelectorAll('button.delete-schedule-btn').forEach(btn => {
             btn.onclick = () => {
-                if (container.children.length > 1 ) {
+                if (schedules.children.length > 1 ) {
                     btn.closest('.row').remove();
                     refreshEventSchedules();
                 } else {
                     Swal.fire({
                         title: "Warning!",
-                        text: "Schedules required minimal 1 data!",
+                        text: "Schedule required minimal 1 data!",
                         icon: "warning",
                     });
                 }
@@ -191,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Prevent double day input select
-        let selects = container.querySelectorAll('select.day-input');
+        let selects = schedules.querySelectorAll('select.day-input');
         let get_inputed_days = () => Array.from(selects).map(select => select.value);
         let day_values = ['mon', 'tue', 'web', 'thu', 'fri', 'sat', 'sun'];
 
@@ -222,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add Schedule
     function addShedule(day = null, timeStart = null, timeEnd = null) {
-        if (container.children.length >= 7) {
+        if (schedules.children.length >= 7) {
             Swal.fire({
                 title: "Warning!",
                 text: "Maximum day exceeded!",
@@ -238,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
         row.innerHTML = `
             <div class="col-2 pe-1">
                 <button type="button" class="btn btn-danger delete-schedule-btn w-100">
-                    <i class="bi bi-dash-circle"></i>
+                    <i class="bi bi-trash-fill"></i>
                 </button>
             </div>
             <div class="col-4 px-1">
@@ -261,18 +269,18 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
-        container.append(row);
+        schedules.append(row);
         refreshEventSchedules();
     }
     document.querySelector("#add-schedule-btn").onclick = () => {addShedule()};
     
     // Reset Schedule
     function resetSchedule(clear = false) {
-        container.innerHTML = (clear) ? "" : ` 
+        schedules.innerHTML = (clear) ? "" : ` 
             <div class="row mb-3">
                 <div class="col-2 pe-1 d-flex justify-content-end">
                     <button type="button" class="btn btn-danger delete-schedule-btn w-100">
-                        <i class="bi bi-dash-circle"></i>
+                        <i class="bi bi-trash-fill"></i>
                     </button>
                 </div>
                 <div class="col-4 px-1">

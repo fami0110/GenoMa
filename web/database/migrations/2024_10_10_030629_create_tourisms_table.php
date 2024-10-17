@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('category', 15);
             $table->json('photos');
+            $table->string('description', 500);
             $table->string('link', 50);
             $table->string('address', 100);
             $table->double('longitude');
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->integer('price_min');
             $table->integer('price_max');
             $table->json('facilities');
-            $table->float('rate');
+            $table->double('rate');
             $table->boolean('is_recomended');
             $table->timestamps();
         });

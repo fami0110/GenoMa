@@ -294,8 +294,11 @@ window.addEventListener("load", initSwiper);
 
 function setMode(mode) {
   const setVar = (varName, value) => {document.documentElement.style.setProperty(varName, value)};
+
   // dark mode
   if (mode === 'dark') {    
+    document.body.classList.add("dark-mode");
+
     setVar('--background-color', '#1e1e1e');
     setVar('--default-color', '#ffffff');
     setVar('--heading-color', '#ffffff');
@@ -332,6 +335,8 @@ function setMode(mode) {
 
   } else {
     // light mode
+    document.body.classList.remove("dark-mode");
+
     setVar('--background-color', '#f8fafc');
     setVar('--default-color', '#3d4348');
     setVar('--heading-color', '#3e5055');

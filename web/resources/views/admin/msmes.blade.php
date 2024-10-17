@@ -26,8 +26,8 @@
                                         <th>Nama</th>
                                         <th>Gambar</th>
                                         <th>Kategori</th>
-                                        <th>Rekomendasi</th>
                                         <th>Alamat</th>
+                                        <th>Recomended</th>
                                         <th class="text-center">Rating</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -46,6 +46,7 @@
                                                 </span>
                                             </td>
                                             <td>{{ $category_names[intval($item->category) - 1] }}</td>
+                                            <td>{{ $item->address }}</td>
                                             <td>
                                                 @if ($item->is_recomended)
                                                     <span class="badge bg-success">Ya</span>
@@ -53,7 +54,6 @@
                                                     <span class="badge bg-secondary">Tidak</span>
                                                 @endif
                                             </td>
-                                            <td>{{ $item->address }}</td>
                                             <td class="text-center">
                                                 {{ $item->rate }}
                                             </td>
@@ -84,7 +84,7 @@
         </section>
 
         <!-- Modal Tambah -->
-        <div class="modal modal-xl fade" id="formModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal modal-xl fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content table-color">
 
@@ -93,11 +93,12 @@
                         @method('POST')
 
                         <div class="modal-header">
-                            <h5 class="modal-title" id="addModalLabel">Tambah Data</h5>
+                            <h5 class="modal-title" id="formModalLabel">Tambah Data</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row">
+                                
                                 <div class="col-12 col-md-12 col-lg-6">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">
@@ -113,8 +114,6 @@
                                                     Gambar 1 <small class="text-secondary">(Include for Cover)</small> <span class="text-danger">*</span>
                                                 </label>
                                             </div>
-                                            <div class="col-4 mb-2 d-flex justify-content-end">
-                                            </div>
                                         </div>
                                         <input type="file" class="form-control" name="cover" id="cover" required>
                                     </div>
@@ -123,8 +122,6 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <label for="image-1" class="form-label">Gambar Slider</label>
-                                            </div>
-                                            <div class="col-4 mb-2 d-flex justify-content-end">
                                             </div>
                                         </div>
                                         <input multiple type="file" class="form-control" name="slider[]">
@@ -149,13 +146,14 @@
                                 </div>
     
                                 <div class="col-12 col-md-12 col-lg-6">
+
                                     <div class="row">
                                         <div class="col-8">
                                             <label for="facility" class="form-label">Jadwal</label>
                                         </div>
                                         <div class="col-4 mb-2 d-flex justify-content-end">
                                             <span class="badge bg-danger d-flex justify-content-center align-items-center me-1" id="reset-schedule-btn" style="cursor: pointer;">
-                                                <i class="bi bi-trash-fill"></i>
+                                                <i class="bi bi-dash-circle"></i>
                                             </span>
                                             <span class="badge bg-success d-flex justify-content-center align-items-center" id="add-schedule-btn" style="cursor: pointer;">
                                                 <i class="bi bi-plus-circle"></i>
@@ -167,7 +165,7 @@
                                         <div class="row mb-3">
                                             <div class="col-2 pe-1">
                                                 <button type="button" class="btn btn-danger delete-schedule-btn w-100">
-                                                    <i class="bi bi-dash-circle"></i>
+                                                    <i class="bi bi-trash-fill"></i>
                                                 </button>
                                             </div>
                                             <div class="col-4 px-1">
@@ -244,7 +242,7 @@
     
                                     <div class="row">
                                         <div class="mb-3 col-6">
-                                            <label class="form-label">Rekomendasi <span class="text-danger">*</span></label>
+                                            <label class="form-label">Recomended <span class="text-danger">*</span></label>
                                             <div class="card table-color px-3 py-2">
                                                 <div class="d-flex">
                                                     <div class="form-check">
@@ -316,7 +314,7 @@
     <script src="{{ asset('assets/vendor/DataTables/datatables.min.js') }}"></script>
     
     <!-- Page Script -->
-    <script src="{{ asset('assets/js/pages/msmes.js') }}"></script>
+    <script src="{{ asset('assets/js/admin/msmes.js') }}"></script>
 
 
 @endsection

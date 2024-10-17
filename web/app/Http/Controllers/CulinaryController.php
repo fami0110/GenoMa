@@ -32,7 +32,7 @@ class CulinaryController extends Controller
      */
     public function get(string $id)
     {
-        return json_encode(Culinary::where('id', $id)->first());
+        return json_encode(Culinary::find($id));
     }
 
     /**
@@ -40,7 +40,7 @@ class CulinaryController extends Controller
      */
     public function show(string $id)
     {
-        $data = Culinary::where('id', $id)->first();
+        $data = Culinary::find($id);
 
         return view('details.culinary', [
             'data' => $data,
