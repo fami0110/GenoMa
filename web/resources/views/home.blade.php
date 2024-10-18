@@ -315,7 +315,7 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="title-landing" data-aos="fade-up" data-aos-delay="200">
-                            <h3>Macito</h3>
+                            <h3 class="subtitle">Macito</h3>
                         </div>
                         <p data-aos="fade-up" data-aos-delay="300">
                             {{ __('home-macito-desc') }}
@@ -436,8 +436,9 @@
 
     <!-- Vendor JS Files -->
 
-    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}" defer></script>
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}" defer></script>
     <script src="{{ asset('assets/vendor/typed.js/typed.umd.js') }}" defer></script>
+
+    <script src="{{ asset('assets/js/user/home.js') }}" defer></script>
     
 @endsection

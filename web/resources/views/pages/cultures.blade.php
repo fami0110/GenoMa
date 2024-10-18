@@ -28,103 +28,46 @@
                     <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
                         <ul class="card-filters isotope-filters">
-                            <li data-filter="*" class="filter-active">Semua</li>
-                            <li data-filter=".filter-agama">Agama</li>
-                            <li data-filter=".filter-adat-istiadat">Adat Istiadat</li>
-                            <li data-filter=".filter-bahasa">Bahasa</li>
-                            <li data-filter=".filter-kesenian">Kesenian</li>
-                            <li data-filter=".filter-lainnya">Lainnya</li>
+                            <li data-filter="*" class="filter-active">All</li>
+
+                            <?php $category_names = ['Agama', 'Adat Istiadat', 'Bahasa', 'Kesenian', 'Lainnya']; ?>
+
+                            @foreach ($category_names as $i => $category)
+                                <li data-filter=".filter-{{ $i+1 }}">{{ $category }}</li>
+                            @endforeach
                         </ul>
 
                         <div class="no-data-message"
                             style="display: none; text-align: center; font-size: 18px; color: #999; margin: 40px;">
                             Tidak Ada Data
                         </div>
+
                         <div class="row gy-4 isotope-container">
-                            <div class="col-lg-6 card-item isotope-item filter-agama">
-                                <div class="card shadow-sm border-0 mb-3 table-color">
-                                    <div class="row g-0">
-                                        <div class="col-lg-5">
-                                            <img src="assets/img/A beautiful street in Malang City.jpg"
-                                                class="card-cultures rounded-4 shadow-sm" alt="...">
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-2 mt-lg-4">Card title</h5>
-                                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur. Explicabo fuga
-                                                    enim in, maxime
-                                                    debitis libero, nobis saepe ratione exercitationem...</p>
-                                                <a href="cultures-description.html"
-                                                    class="btn button-primary mt-3 text-start text-md-center">Baca
-                                                    Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
+
+                            @foreach ($data as $item)
+                                
+                                <div class="col-lg-6 card-item isotope-item filter-{{ $item->category }}"">
+                                    <div class="card shadow-sm border-0 mb-3 table-color">
+                                        <div class="row g-0">
+                                            <div class="col-lg-5">
+                                                <img src="{{ asset('storage/cultures/' . $item->cover) }}" 
+                                                    class="card-cultures rounded-4 shadow-sm" alt="{{ $item->name }}">
+                                            </div>
+                                            <div class="col-lg-7">
+                                                <div class="card-body">
+                                                    <h5 class="card-title mb-2 mt-lg-4">{{ $item->name }}</h5>
+                                                    <p class="card-text">{{ substr(preg_replace('/<[^>]*>/i', '', $item->content), 0, 150) . "..." }}</p>
+                                                    <a href="{{ url('/cultures/' . $item->id) }}" class="btn button-primary mt-3 text-start text-md-center">
+                                                        {{ __('see-more') }}<i class="bi bi-arrow-right ms-1"></i></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 card-item isotope-item filter-adat-istiadat">
-                                <div class="card shadow-sm border-0 mb-3 table-color">
-                                    <div class="row g-0">
-                                        <div class="col-lg-5">
-                                            <img src="assets/img/A beautiful street in Malang City.jpg"
-                                                class="card-cultures rounded-4 shadow-sm" alt="...">
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-2 mt-lg-4">Card title</h5>
-                                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur. Explicabo fuga
-                                                    enim in, maxime
-                                                    debitis libero, nobis saepe ratione exercitationem...</p>
-                                                <a href="cultures-description.html"
-                                                    class="btn button-primary mt-3 text-start text-md-center">Baca
-                                                    Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 card-item isotope-item filter-bahasa">
-                                <div class="card shadow-sm border-0 mb-3 table-color">
-                                    <div class="row g-0">
-                                        <div class="col-lg-5">
-                                            <img src="assets/img/A beautiful street in Malang City.jpg"
-                                                class="card-cultures rounded-4 shadow-sm" alt="...">
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-2 mt-lg-4">Card title</h5>
-                                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur. Explicabo fuga
-                                                    enim in, maxime
-                                                    debitis libero, nobis saepe ratione exercitationem...</p>
-                                                <a href="cultures-description.html"
-                                                    class="btn button-primary mt-3 text-start text-md-center">Baca
-                                                    Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 card-item isotope-item filter-kesenian">
-                                <div class="card shadow-sm border-0 mb-3 table-color">
-                                    <div class="row g-0">
-                                        <div class="col-lg-5">
-                                            <img src="assets/img/A beautiful street in Malang City.jpg"
-                                                class="card-cultures rounded-4 shadow-sm" alt="...">
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-2 mt-lg-4">Card title</h5>
-                                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur. Explicabo fuga
-                                                    enim in, maxime
-                                                    debitis libero, nobis saepe ratione exercitationem...</p>
-                                                <a href="cultures-description.html"
-                                                    class="btn button-primary mt-3 text-start text-md-center">Baca
-                                                    Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                            @endforeach
+                            
+
                         </div>
 
                     </div>
@@ -132,22 +75,22 @@
                 </div>
 
                 <div class="row mt-4">
-                    <nav aria-label="...">
+                    <nav>
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
+                                <span class="page-link previous-btn">&laquo;</span>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active" aria-current="page">
-                                <span class="page-link">2</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                            <?php $index = 1; ?>
+                            @for ($i = 0; $i < count($data); $i += 8)
+                                <li class="page-item" data-index="{{ $index }}">
+                                    <span class="page-link">{{ $index }}</span>
+                                </li>
+                                <?php $index++; ?>
+                            @endfor
+                            
                             <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
+                                <spa class="page-link next-btn">&raquo;</spa>
                             </li>
                         </ul>
                     </nav>
@@ -160,7 +103,9 @@
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}" defer></script>
     <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}" defer></script>
-    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}" defer></script>
+
+    <!-- Page Script -->
+    <script src="{{ asset('assets/js/user/common.js') }}" defer></script>
 
     
 @endsection

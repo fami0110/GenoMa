@@ -150,7 +150,7 @@ def main():
         for i in range(len(argvs)):
             if argvs[i] == '-h':
                 print("Usage: python scrapper.py [-L FILE] [-a IMG_AMOUNT]")
-                exit()
+                sys.exit(1)
             if argvs[i] == '-L':
                 i += 1
                 sc = argvs[i]
@@ -207,6 +207,4 @@ def main():
                 image_path = os.path.join(place_folder, f'{i+1}.jpg')
                 open(image_path, 'wb').write(response.content)
 
-
-if __name__ == '__main__':
-    main()
+main()

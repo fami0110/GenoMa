@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tourism;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class TourismController extends Controller
@@ -34,12 +35,34 @@ class TourismController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $req)
     {
-        $data = Tourism::orderBy('is_recomended')->get();
+        if ($req->has('longitude') && $req->has('latitude') && $req->has('radius')) {
+            
+            // Get data by radius
+            $lat = floatval($req->get('latitude'));
+            $long = floatval($req->get('longitude'));
+            $radius = intval($req->get('radius'));
+
+            $data = Tourism::select('*',
+                DB::raw("( 6371 * acos( cos( radians(?) ) 
+                    * cos( radians(latitude) ) 
+                    * cos( radians(longitude) - radians(?) ) 
+                    + sin( radians(?) ) 
+                    * sin( radians(latitude) ) ) ) AS distance")
+            )
+            ->having('distance', '<', $radius)
+            ->orderBy('distance')
+            ->setBindings([$lat, $long, $lat])
+            ->get();
+            
+        } else {
+            $data = Tourism::orderByDesc('is_recomended')->get();
+        }
 
         return view('pages.tourism', [
             'data' => $data,
+            'radius' => $req->get('radius'),
             'current_page' => 'tourism',
         ]);
     }
@@ -49,7 +72,7 @@ class TourismController extends Controller
      */
     public function admin()
     {
-        $data = Tourism::orderBy('is_recomended')->get();
+        $data = Tourism::orderByDesc('is_recomended')->get();
 
         return view('admin.tourism', [
             'data' => $data,

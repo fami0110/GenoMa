@@ -34,7 +34,7 @@
                                 </thead>
                                 <tbody>
 
-                                    <?php $category_names = ['Budaya', 'Alam', 'Religi', 'Rekreasi', 'Petualangan', 'Olahraga', 'Kota']; ?>
+                                    <?php $category_names = ['Budaya', 'Alam', 'Religi', 'Rekreasi', 'Sejarah', 'Petualangan', 'Olahraga', 'Kota']; ?>
 
                                     @foreach ($data as $item)
                                         <tr>
@@ -250,7 +250,7 @@
                         </div>
     
                         <div class="modal-footer">
-                            <button type="submit" class="btn button-primary">Kirim</button>
+                            <button type="submit" class="btn button-primary">{{ __('send') }}</button>
                         </div>
 
                     </form>
@@ -288,17 +288,12 @@
     </main>
 
     <!-- Vendor JS Files -->
-    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}" defer></script>
-    <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}" defer></script>
-    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}" defer></script>
     <script src="{{ asset('assets/vendor/sweet-alert/swal.min.js') }}" defer></script>
-
-    <!-- Datatables -->
-    <script src="{{ asset('assets/vendor/DataTables/jquery.js') }}"></script>
-    <script src="{{ asset('assets/vendor/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/DataTables/jquery.js') }}" defer></script>
+    <script src="{{ asset('assets/vendor/DataTables/datatables.min.js') }}" defer></script>
 
     <!-- Page Script -->
-    <script src="{{ asset('assets/js/admin/tourism.js') }}"></script>
+    <script src="{{ asset('assets/js/admin/tourism.js') }}" defer></script>
 
     
 @endsection

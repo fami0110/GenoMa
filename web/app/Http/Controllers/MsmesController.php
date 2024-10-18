@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Msmes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class MsmesController extends Controller
@@ -39,12 +40,34 @@ class MsmesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $req)
     {
-        $data = Msmes::orderBy('is_recomended')->get();
+        if ($req->has('longitude') && $req->has('latitude') && $req->has('radius')) {
+            
+            // Get data by radius
+            $lat = floatval($req->get('latitude'));
+            $long = floatval($req->get('longitude'));
+            $radius = intval($req->get('radius'));
+
+            $data = Msmes::select('*',
+                DB::raw("( 6371 * acos( cos( radians(?) ) 
+                    * cos( radians(latitude) ) 
+                    * cos( radians(longitude) - radians(?) ) 
+                    + sin( radians(?) ) 
+                    * sin( radians(latitude) ) ) ) AS distance")
+            )
+            ->having('distance', '<', $radius)
+            ->orderBy('distance')
+            ->setBindings([$lat, $long, $lat])
+            ->get();
+            
+        } else {
+            $data = Msmes::orderByDesc('is_recomended')->get();
+        }
 
         return view('pages.msmes', [
             'data' => $data,
+            'radius' => $req->get('radius'),
             'current_page' => 'msmes',
         ]);
     }
@@ -54,7 +77,7 @@ class MsmesController extends Controller
      */
     public function admin()
     {
-        $data = Msmes::orderBy('is_recomended')->get();
+        $data = Msmes::orderByDesc('is_recomended')->get();
 
         return view('admin.msmes', [
             'data' => $data,

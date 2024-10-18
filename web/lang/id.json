@@ -8,6 +8,9 @@
 
     "manage": "Kelola",
     "see-more": "Lihat Selengkapnya",
+    "distance-desc": "Rentang Jarak dari Lokasi Anda",
+    "distance-enter": "Masukkan Angka",
+    "send": "Kirim",
 
     "home-about-title": "Tentang Kota Malang",
     "home-about-desc": "Malang adalah kota terbesar kedua di Jawa Timur dan yang ke-12 terbesar di Indonesia. Kota ini terus berkembang pesat dan menjadi pusat aktivitas perkotaan. Selain kaya akan sejarah dan budaya, Malang juga menjadi tujuan wisata yang menarik bagi banyak orang. Di samping itu, kota ini berperan penting dalam mendorong perekonomian Jawa Timur. Dengan sejarah yang kuat serta peran pentingnya di bidang pariwisata dan ekonomi, Malang adalah kota yang berpengaruh di Indonesia.",
@@ -50,6 +53,17 @@
     "day-fri": "Jumat",
     "day-sat": "Sabtu",
     "day-sun": "Minggu",
+
+    "detail-schedules": "Jam Operasional",
+    "detail-open": "Buka",
+    "detail-closed": "Tutup",
+    "detail-openat": "Buka Pukul",
+    "detail-prices": "Rentang Harga",
+    "detail-free": "GRATIS",
+    "detail-address": "Alamat",
+    "detail-maps": "Buka di Maps",
+    "detail-contact": "Salin Kontak Owner",
+    "detail-facilities": "Fasilitas",
 
     "contact-send": "Kirim",
     "contact-suggest": "Rekomendasi / Saran",

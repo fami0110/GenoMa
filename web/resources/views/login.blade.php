@@ -11,8 +11,8 @@
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="" rel="icon">
-    <link href="" rel="apple-touch-icon">
+    <link href="{{ asset('assets/img/icon-logo.svg') }}" rel="icon">
+    <link href="{{ asset('assets/img/icon-logo.svg') }}" rel="apple-touch-icon">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">

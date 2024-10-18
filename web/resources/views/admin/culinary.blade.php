@@ -34,7 +34,7 @@
                                 </thead>
                                 <tbody>
 
-                                    <?php $category_names = ['Fashion', 'Oleh - oleh Makanan', 'Kriya', 'Lain - lain']; ?>
+                                    <?php $category_names = ['Makanan', 'Minuman', 'Kafe', 'Rumah Makan', 'Sentra Kuliner']; ?>
 
                                     @foreach ($data as $item)
                                         <tr>
@@ -131,10 +131,11 @@
                                         <label for="category" class="form-label">Kategori <span class="text-danger">*</span></label>
                                         <select class="form-select" id="category" name="category" required>
                                             <option selected disabled>Pilih...</option>
-                                            <option value="1">Fashion</option>
-                                            <option value="2">Oleh - oleh Makanan</option>
-                                            <option value="3">Kriya</option>
-                                            <option value="4">Lain - lain</option>
+                                            <option value="1">Makanan</option>
+                                            <option value="2">Minuman</option>
+                                            <option value="3">Kafe</option>
+                                            <option value="4">Rumah Makan</option>
+                                            <option value="5">Sentra Kuliner</option>
                                         </select>
                                     </div>
     
@@ -266,7 +267,7 @@
                         </div>
     
                         <div class="modal-footer">
-                            <button type="submit" class="btn button-primary">Kirim</button>
+                            <button type="submit" class="btn button-primary">{{ __('send') }}</button>
                         </div>
 
                     </form>
@@ -304,17 +305,12 @@
     </main>
 
     <!-- Vendor JS Files -->
-    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}" defer></script>
-    <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}" defer></script>
-    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}" defer></script>
     <script src="{{ asset('assets/vendor/sweet-alert/swal.min.js') }}" defer></script>
-
-    <!-- Datatables -->
-    <script src="{{ asset('assets/vendor/DataTables/jquery.js') }}"></script>
-    <script src="{{ asset('assets/vendor/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/DataTables/jquery.js') }}" defer></script>
+    <script src="{{ asset('assets/vendor/DataTables/datatables.min.js') }}" defer></script>
     
     <!-- Page Script -->
-    <script src="{{ asset('assets/js/admin/culinary.js') }}"></script>
+    <script src="{{ asset('assets/js/admin/culinary.js') }}" defer></script>
 
     
 @endsection

@@ -103,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const URL_STORAGE = $('#imgModal').data('url-storage') + "/";
         
         const updateSlider = (photos) => {
-            console.log('b');
             let index = 0;
 
             $('#img-slider .modal-body').html(`

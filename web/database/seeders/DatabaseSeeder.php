@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Culinary;
+use App\Models\Cultures;
+use App\Models\Msmes;
+use App\Models\Tourism;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
@@ -23,5 +27,13 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin123'),
             'role' => 'admin',
         ]);
+
+        Culinary::factory(20)->create();
+
+        Cultures::factory(20)->create();
+
+        Msmes::factory(20)->create();
+        
+        Tourism::factory(20)->create();
     }
 }

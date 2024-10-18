@@ -60,9 +60,11 @@ class CulturesController extends Controller
     public function show(string $id)
     {
         $data = Cultures::find($id);
+        $suggestions = Cultures::inRandomOrder()->limit(5)->get();
 
         return view('details.cultures', [
             'data' => $data,
+            'suggestions' => $suggestions,
             'current_page' => 'cultures',
         ]);
     }

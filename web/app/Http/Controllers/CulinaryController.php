@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Culinary;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class CulinaryController extends Controller
@@ -39,12 +40,34 @@ class CulinaryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $req)
     {
-        $data = Culinary::orderBy('is_recomended')->get();
+        if ($req->has('longitude') && $req->has('latitude') && $req->has('radius')) {
+            
+            // Get data by radius
+            $lat = floatval($req->get('latitude'));
+            $long = floatval($req->get('longitude'));
+            $radius = intval($req->get('radius'));
+
+            $data = Culinary::select('*',
+                DB::raw("( 6371 * acos( cos( radians(?) ) 
+                    * cos( radians(latitude) ) 
+                    * cos( radians(longitude) - radians(?) ) 
+                    + sin( radians(?) ) 
+                    * sin( radians(latitude) ) ) ) AS distance")
+            )
+            ->having('distance', '<', $radius)
+            ->orderBy('distance')
+            ->setBindings([$lat, $long, $lat])
+            ->get();
+            
+        } else {
+            $data = Culinary::orderByDesc('is_recomended')->get();
+        }
 
         return view('pages.culinary', [
             'data' => $data,
+            'radius' => $req->get('radius'),
             'current_page' => 'culinary',
         ]);
     }
@@ -54,7 +77,7 @@ class CulinaryController extends Controller
      */
     public function admin()
     {
-        $data = Culinary::orderBy('is_recomended')->get();
+        $data = Culinary::orderByDesc('is_recomended')->get();
 
         return view('admin.culinary', [
             'data' => $data,
