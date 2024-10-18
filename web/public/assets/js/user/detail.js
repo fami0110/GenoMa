@@ -5,8 +5,6 @@ if (map_container) {
     let title = map_container.dataset.title;
     let longitude = parseFloat(map_container.dataset.longitude);
     let latitude = parseFloat(map_container.dataset.latitude);
-
-    console.log([latitude, longitude]);
     
     const map = L.map("map").setView([latitude, longitude], 13);
     
@@ -19,8 +17,8 @@ if (map_container) {
 }
 
 
-document.querySelectorAll('copy').forEach(copy => {
+document.querySelectorAll('.copy-btn').forEach(copy => {
     copy.addEventListener('click', () => {
-        navigator.clipboard.writeText(copy.dataset.copy);     
+        navigator.clipboard.writeText(copy.dataset.copy);
     });
 });

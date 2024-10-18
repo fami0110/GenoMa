@@ -6,7 +6,7 @@
     if (in_array('admin', $segments)) {
         $prefix = __('manage') . ' ';
     } elseif (count($segments) == 2) {
-        $prefix = 'Detail ';
+        $prefix = __('details') . ' ';
     }
 @endphp
 
