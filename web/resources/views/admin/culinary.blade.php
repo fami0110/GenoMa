@@ -10,11 +10,11 @@
                 <div class="card border-0 shadow p-3 mb-2 rounded-4 card-bg table-color">
                     <div class="row my-2">
                         <div class="col-lg-6">
-                            <h4 class="text-secondary mx-2">Tabel Konten UMKM</h4>
+                            <h4 class="text-secondary mx-2">{{ __('table-content') }}</h4>
                         </div>
                         <div class="text-end col-lg-6">
                             <button type="button" class="btn button-primary mx-2 add-btn" data-bs-toggle="modal" data-bs-target="#formModal">
-                                Tambah Data
+                                {{ __('add-data') }}
                             </button>
                         </div>
                     </div>
