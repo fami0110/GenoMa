@@ -61,7 +61,7 @@
                                         <p><span class="badge text-bg-primary text-uppercase me-2">#RECOMENDED</span></p>
                                     @endif
                                     
-                                    <?php $category_names = ['Fashion', 'Oleh - oleh Makanan', 'Kriya', 'Lain - lain']; ?>
+                                    <?php $category_names = __('categories-msmes'); ?>
 
                                     <p><span class="badge text-bg-primary text-uppercase me-2">#{{ $category_names[intval($data->category)-1] }}</span></p>
                                 </div>

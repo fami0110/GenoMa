@@ -29,9 +29,9 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="input-group mb-3 mt-3 mt-lg-0">
-                            <input type="text" class="form-control rounded-start-5" placeholder="Ketik di sini...">
+                            <input type="text" class="form-control rounded-start-5" placeholder="{{ __('type-here') }}">
                             <button class="btn button-outline-primary rounded-end-5" type="button" id="button-addon2">
-                                Cari
+                                {{ __('search') }}
                             </button>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <ul class="card-filters isotope-filters">
                             <li data-filter="*" class="filter-active">All</li>
 
-                            <?php $category_names = ['Makanan', 'Minuman', 'Kafe', 'Rumah Makan', 'Sentra Kuliner']; ?>
+                            <?php $category_names = __('categories-culinary'); ?>
 
                             @foreach ($category_names as $i => $category)
                                 <li data-filter=".filter-{{ $i+1 }}">{{ $category }}</li>

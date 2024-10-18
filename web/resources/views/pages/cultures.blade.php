@@ -11,10 +11,10 @@
                 <div class="row justify-content-end">
                     <div class="col-lg-3">
                         <div class="input-group mb-3 mt-3 mt-lg-0">
-                            <input type="text" class="form-control rounded-start-5" placeholder="Ketik di sini..."
-                                aria-label="Ketik di sini..." aria-describedby="button-addon2">
-                            <button class="btn button-outline-primary rounded-end-5" type="button"
-                                id="button-addon2">Cari</button>
+                            <input type="text" class="form-control rounded-start-5" placeholder="{{ __('type-here') }}">
+                            <button class="btn button-outline-primary rounded-end-5" type="button" id="button-addon2">
+                                {{ __('search') }}
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         <ul class="card-filters isotope-filters">
                             <li data-filter="*" class="filter-active">All</li>
 
-                            <?php $category_names = ['Agama', 'Adat Istiadat', 'Bahasa', 'Kesenian', 'Lainnya']; ?>
+                            <?php $category_names = __('categories-cultures'); ?>
 
                             @foreach ($category_names as $i => $category)
                                 <li data-filter=".filter-{{ $i+1 }}">{{ $category }}</li>
