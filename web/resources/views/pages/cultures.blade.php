@@ -51,7 +51,7 @@
                                         <div class="row g-0">
                                             <div class="col-lg-5">
                                                 <img src="{{ asset('storage/cultures/' . $item->cover) }}" 
-                                                    class="card-cultures rounded-4 shadow-sm" alt="{{ $item->name }}">
+                                                    class="card-cultures rounded-4 shadow-sm" alt="{{ $item->name }}" loading="lazy">
                                             </div>
                                             <div class="col-lg-7">
                                                 <div class="card-body">

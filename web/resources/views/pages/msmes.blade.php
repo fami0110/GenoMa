@@ -17,7 +17,7 @@
                                 <label class="col-form-label col-sm-4" for="distance">{{ __('distance-desc') }}:</label>
                                 <div class="col-lg-3 col-8">
                                     <div class="input-group mb-3">
-                                        <input type="number" class="form-control rounded-start-5" id="radius" name="radius" 
+                                        <input type="number" class="form-control rounded-start-5" id="radius" name="radius" min="0" 
                                             @if ($radius) value="{{ $radius }}" @endif placeholder="{{ __('distance-enter') }}">
                                         <span class="input-group-text rounded-end-5">KM</span>
                                     </div>
@@ -74,7 +74,9 @@
                                                 <span class="badge bg-info badge-top-right fw-bold">{{ number_format($item->distance, 2, ',', '.') }} KM</span>
                                             @endif
                                             
-                                            <img src="{{ asset('storage/msmes/' . json_decode($item->photos)[0]) }}" class="card-img rounded-4" alt="{{ $item->name }}">
+                                            <img src="{{ asset('storage/msmes/' . json_decode($item->photos)[0]) }}" 
+                                                class="card-img rounded-4" alt="{{ $item->name }}" loading="lazy">
+
                                             <div class="card-img-overlay rounded-4">
                                                 <h5 class="card-title">{{ $item->name }}</h5>
                                                 <p class="card-text">{{ __('see-more') }} <i class="bi bi-arrow-right"></i></p>
