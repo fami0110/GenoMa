@@ -28,7 +28,7 @@ class CulinaryController extends Controller
             'price_min' => 'required|numeric|min:0',
             'price_max' => 'required|numeric|min:0',
             'day' => 'required|array|min:1',
-            'day.*' => 'required|string|in:mon,tue,web,thu,fri,sat,sun',
+            'day.*' => 'required|string|in:mon,tue,wed,thu,fri,sat,sun',
             'time-start' => 'required|array',
             'time-start.*' => 'required|date_format:H:i',
             'time-end' => 'required|array',
