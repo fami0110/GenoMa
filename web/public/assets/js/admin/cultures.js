@@ -1,10 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // DATATABLES INIT //
-
-    $('#datatables').DataTable();
-
-
     // ADD BUTTON EVENT //
 
     $('.add-btn').on('click', () => {
@@ -131,5 +126,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
         }
     });
+
+
+    // DATATABLES INIT //
+
+    $('#datatables').DataTable();
 
 });

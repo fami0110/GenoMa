@@ -91,7 +91,7 @@
                                 <form action="{{ url('/login') }}" method="POST">
                                     @csrf
                                     <a href="{{ url('/') }}">
-                                        <img src="{{ asset('assets/img/LogoGenoma.svg') }}" alt="logo genoma">
+                                        <img src="{{ asset('assets/img/LogoGenoma2.svg') }}" alt="logo genoma">
                                     </a>
                                     <h5 class="card-title mb-2 mt-lg-4"></h5>
                                     <div class="form-floating rounded-5 mb-3">
