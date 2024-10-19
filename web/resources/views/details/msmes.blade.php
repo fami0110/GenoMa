@@ -100,7 +100,7 @@
                                                                 <span class="border-start text-success px-3 mx-2">{{ __('detail-open') }}</span>
                                                             @else
                                                                 <span class="border-start text-danger px-3 mx-2">{{ __('detail-closed') }}</span>
-                                                                @if($nextOpenTime) <span class="border-start px-3 mx-2">{{ __('detail-openat') }} {{ $nextOpenTime }}</span> @endif
+                                                                @if ($nextOpenTime) {{ __('detail-openat') }} {{ $nextOpenTime }} @endif
                                                             @endif
                                                         @else
                                                             <span class="border-start text-danger px-3 mx-2">{{ __('detail-closed') }}</span>
