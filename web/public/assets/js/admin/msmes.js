@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </button>
             </div>
             <div class="col-4 px-1">
-                <select class="form-control day-input" name="day[]" required>
+                <select class="form-select day-input" name="day[]" required>
                     <option ${ (day === null) ? "selected" : "" } disabled>Pilih Hari</option>
                     <option value="mon" ${ (day === "mon") ? "selected" : "" }>Senin</option>
                     <option value="tue" ${ (day === "tue") ? "selected" : "" }>Selasa</option>
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </button>
                 </div>
                 <div class="col-4 px-1">
-                    <select class="form-control day-input" name="day[]" required>
+                    <select class="form-select day-input" name="day[]" required>
                         <option selected disabled>Pilih Hari</option>
                         <option value="mon">Senin</option>
                         <option value="tue">Selasa</option>

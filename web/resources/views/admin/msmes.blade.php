@@ -169,7 +169,7 @@
                                                 </button>
                                             </div>
                                             <div class="col-4 px-1">
-                                                <select class="form-control day-input" name="day[]" required>
+                                                <select class="form-select day-input" name="day[]" required>
                                                     <option selected disabled>Pilih Hari</option>
                                                     <option value="mon">Senin</option>
                                                     <option value="tue">Selasa</option>

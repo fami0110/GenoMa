@@ -28,12 +28,12 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        // Culinary::factory(20)->create();
+        Culinary::factory(20)->create();
 
-        // Cultures::factory(20)->create();
+        Cultures::factory(20)->create();
 
-        // Msmes::factory(20)->create();
+        Msmes::factory(20)->create();
         
-        // Tourism::factory(20)->create();
+        Tourism::factory(100)->create();
     }
 }

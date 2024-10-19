@@ -51,7 +51,7 @@
                             <?php $category_names = __('categories-msmes'); ?>
 
                             @foreach ($category_names as $i => $category)
-                                <li data-filter=".filter-{{ $i+1 }}">{{ $category }}</li>
+                                <li data-filter="filter-{{ $i+1 }}">{{ $category }}</li>
                             @endforeach
                         </ul>
 
@@ -93,25 +93,10 @@
 
                 <div class="row mt-4">
                     <nav>
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <span class="page-link previous-btn">&laquo;</span>
-                            </li>
-
-                            <?php $index = 1; ?>
-                            @for ($i = 0; $i < count($data); $i += 8)
-                                <li class="page-item" data-index="{{ $index }}">
-                                    <span class="page-link">{{ $index }}</span>
-                                </li>
-                                <?php $index++; ?>
-                            @endfor
-                            
-                            <li class="page-item">
-                                <spa class="page-link next-btn">&raquo;</spa>
-                            </li>
-                        </ul>
+                        <ul class="pagination justify-content-center"></ul>
                     </nav>
                 </div>
+
             </div>
         </section>
 
