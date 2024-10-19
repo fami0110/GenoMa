@@ -17,7 +17,7 @@
                                 <label class="col-form-label col-sm-4" for="distance">{{ __('distance-desc') }}:</label>
                                 <div class="col-lg-3 col-8">
                                     <div class="input-group mb-3">
-                                        <input type="number" class="form-control rounded-start-5" id="radius" name="radius" min="0" 
+                                        <input type="number" class="form-control rounded-start-5" id="radius" name="radius" min="0" required
                                             @if ($radius) value="{{ $radius }}" @endif placeholder="{{ __('distance-enter') }}">
                                         <span class="input-group-text rounded-end-5">KM</span>
                                     </div>
