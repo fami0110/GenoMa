@@ -89,7 +89,7 @@
                                         <h5>Rating</h5>
 
                                         <div class="d-flex">
-                                            <p class="fs-2 me-2 star-rating ">{{ $data->rate }}</p>
+                                            <p class="fs-2 me-2 star-rating ">{{ number_format($data->rate, 1, ",", ".") }}</p>
                                             <div class="d-flex star-rating mt-2">
                                                 <?php  $tmp = $data->rate; ?>
                                                 @for ($i = ceil($data->rate); $i > 0; $i--)
