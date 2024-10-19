@@ -35,12 +35,6 @@
     <!-- Main CSS File -->
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 
-    <style>
-        /* * {
-            outline: 1px solid red;
-        } */
-    </style>
-
 </head>
 
 <body>
@@ -48,7 +42,7 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
             <a href="{{ url('/') }}" class="logo d-flex align-items-center me-auto">
-                <img src="{{ asset('assets/img/Logo.svg') }}" alt="">
+                <img src="{{ asset('assets/img/Logo.svg') }}" alt="Genoma Logo">
                 <h1 class="sitename"></h1>
             </a>
 
@@ -86,11 +80,11 @@
                         <ul class="dropdown-menu-mobile">
                             <li>
                                 <a href="{{ url('/locale/id') }}"><img src="{{ asset('assets/img/id.jpeg') }}"
-                                        style="height: 20px;">ID</a>
+                                    style="height: 20px;" alt="ID flag">ID</a>
                             </li>
                             <li>
                                 <a href="{{ url('/locale/en') }}"><img src="{{ asset('assets/img/en.jpeg') }}"
-                                        style="height: 20px;">EN</a>
+                                    style="height: 20px;" alt="EN flag">EN</a>
                             </li>
                         </ul>
                     </li>
