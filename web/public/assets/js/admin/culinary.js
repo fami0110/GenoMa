@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <option selected disabled>Pilih Hari</option>
                         <option value="mon">Senin</option>
                         <option value="tue">Selasa</option>
-                        <option value="web">Rabu</option>
+                        <option value="wed">Rabu</option>
                         <option value="thu">Kamis</option>
                         <option value="fri">Jumat</option>
                         <option value="sat">Sabtu</option>

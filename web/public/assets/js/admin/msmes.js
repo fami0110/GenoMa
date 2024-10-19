@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <option ${ (day === null) ? "selected" : "" } disabled>Pilih Hari</option>
                     <option value="mon" ${ (day === "mon") ? "selected" : "" }>Senin</option>
                     <option value="tue" ${ (day === "tue") ? "selected" : "" }>Selasa</option>
-                    <option value="web" ${ (day === "web") ? "selected" : "" }>Rabu</option>
+                    <option value="web" ${ (day === "wed") ? "selected" : "" }>Rabu</option>
                     <option value="thu" ${ (day === "thu") ? "selected" : "" }>Kamis</option>
                     <option value="fri" ${ (day === "fri") ? "selected" : "" }>Jumat</option>
                     <option value="sat" ${ (day === "sat") ? "selected" : "" }>Sabtu</option>
@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <option selected disabled>Pilih Hari</option>
                         <option value="mon">Senin</option>
                         <option value="tue">Selasa</option>
-                        <option value="web">Rabu</option>
+                        <option value="wed">Rabu</option>
                         <option value="thu">Kamis</option>
                         <option value="fri">Jumat</option>
                         <option value="sat">Sabtu</option>
