@@ -127,6 +127,12 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
         }
 
         function arrange() {
+            Array.from(paginationNav.children).forEach(nav => {
+                nav.classList.remove('active');
+            });
+            
+            paginationNav.children[currentPage - 1].classList.add('active');
+
             initIsotope.arrange({
                 filter: (item) => item.getAttribute('data-page') == currentPage,
             });
