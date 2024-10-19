@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-lg-9">
-                        <form action="{{ url('/tourism') }}" method="GET">
+                        <form action="{{ url('/tourism') }}" method="GET" id="neares-search">
                             <div class="row">
                                 <input type="hidden" id="longitude" name="longitude">
                                 <input type="hidden" id="latitude" name="latitude">
@@ -23,7 +23,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-2">
-                                    <button type="button" class="btn button-primary" id="distance-submit">{{ __('send') }}</button>
+                                    <button type="submit" class="btn button-primary">{{ __('send') }}</button>
                                 </div>
                             </div>
                         </form>

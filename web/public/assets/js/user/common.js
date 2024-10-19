@@ -147,19 +147,32 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
 
 // Nearest Place
 
-const submitBtn = document.querySelector('#distance-submit');
+const nearestSearch = document.querySelector('form#neares-search');
 
-if (submitBtn) {
-    submitBtn.addEventListener("click", function () {
-        const form = this.closest('form');
+if (nearestSearch) {
+    nearestSearch.addEventListener("submit", function (e) {
+        e.preventDefault();
+        
+        let long = null;
+        let lat = null;
 
-        navigator.geolocation.getCurrentPosition((position) => {
-            document.querySelector('input#longitude').value = position.coords.longitude;
-            document.querySelector('input#latitude').value = position.coords.latitude;
-            
-            form.submit();
-        });
+        function getPosition() {
+            navigator.geolocation.getCurrentPosition((pos) => {
+                long = pos.coords.longitude;
+                lat = pos.coords.latitude;
 
+                if (typeof long != 'number' || typeof lat != 'number') {
+                    console.log("trying get location again...");
+                    setTimeout(getPosition, 1000);
+                }
+                
+                document.querySelector('input#longitude').value = long;
+                document.querySelector('input#latitude').value = lat;
+                
+                nearestSearch.submit();
+            });
+        }
+
+        getPosition();
     });
-
 }
