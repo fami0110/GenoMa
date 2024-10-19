@@ -63,10 +63,10 @@
                                 <a href="{{ url('/tourism') }}">
                                     <div class="card text-white card-hover rounded-4 border-0" data-aos="fade-up"
                                         data-aos-delay="100">
-                                        <img src="{{ asset('assets/img/A beautiful street in Malang City.jpg') }}" loading="lazy"
+                                        <img src="{{ asset('assets/img/pantai-watu-leter.webp') }}" loading="lazy"
                                             class="card-img-landing rounded-4" alt="...">
                                         <div class="card-img-overlay rounded-4">
-                                            <h5 class="card-title">Alun-alun Kota Malang</h5>
+                                            <h5 class="card-title">Pantai Watu Leter</h5>
                                         </div>
                                     </div>
                                 </a>
@@ -76,10 +76,10 @@
                                 <a href="{{ url('/tourism') }}">
                                     <div class="card text-white card-hover rounded-4 border-0" data-aos="fade-up"
                                         data-aos-delay="200">
-                                        <img src="{{ asset('assets/img/East Java Tours with Bromo Photography, Ijen Blue Fire and Waterfall.jpg') }}"
+                                        <img src="{{ asset('assets/img/coban-pelangi.webp') }}"
                                             class="card-img-landing rounded-4" alt="...">
                                         <div class="card-img-overlay rounded-4">
-                                            <h5 class="card-title">Bromo</h5>
+                                            <h5 class="card-title">Coban Pelangi</h5>
                                         </div>
                                     </div>
                                 </a>
@@ -104,7 +104,7 @@
                         <a href="{{ url('/tourism') }}">
                             <div class="card text-white card-hover rounded-4 border-0" data-aos="fade-up"
                                 data-aos-delay="400">
-                                <img src="assets/img/A beautiful street in Malang City.jpg" loading="lazy"
+                                <img src="{{ asset('assets/img/A beautiful street in Malang City.jpg') }}" loading="lazy"
                                     class="card-img-landing-2 rounded-4" alt="...">
                                 <div class="card-img-overlay rounded-4">
                                     <h5 class="card-title">Alun-alun Kota Malang</h5>
@@ -119,7 +119,7 @@
                                 <a href="{{ url('/tourism') }}">
                                     <div class="card text-white card-hover rounded-4 border-0" data-aos="fade-up"
                                         data-aos-delay="500">
-                                        <img src="assets/img/East Java Tours with Bromo Photography, Ijen Blue Fire and Waterfall.jpg" loading="lazy"
+                                        <img src="{{ asset('assets/img/East Java Tours with Bromo Photography, Ijen Blue Fire and Waterfall.jpg') }}" loading="lazy"
                                             class="card-img-landing rounded-4" alt="...">
                                         <div class="card-img-overlay rounded-4">
                                             <h5 class="card-title">Bromo</h5>
@@ -133,10 +133,10 @@
                                 <a href="{{ url('/tourism') }}">
                                     <div class="card text-white card-hover rounded-4 border-0" data-aos="fade-up"
                                         data-aos-delay="600">
-                                        <img src="assets/img/download.jpg" class="card-img-landing rounded-4" loading="lazy"
+                                        <img src="{{ asset('assets/img/santera.webp') }}" class="card-img-landing rounded-4" loading="lazy"
                                             alt="...">
                                         <div class="card-img-overlay rounded-4">
-                                            <h5 class="card-title">Kampung Warna Warni Jodipan</h5>
+                                            <h5 class="card-title">Florawisata Santerra De Laponte</h5>
                                             </p>
                                         </div>
                                     </div>
