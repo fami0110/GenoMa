@@ -72,7 +72,7 @@
                     <li class="dropdown">
                         <a href="#">
                             <span>
-                                <img src="{{ asset('assets/img/' . session('locale', 'id') . '.jpeg') }}" class="me-2" style="height: 20px;">
+                                <img src="{{ asset('assets/img/' . session('locale', 'id') . '.jpeg') }}" class="me-2" style="height: 20px;" alt="Current flag">
                                 {{ strtoupper(session('locale', 'id')) }}
                             </span>
                             <i class="bi bi-chevron-down toggle-dropdown"></i>
