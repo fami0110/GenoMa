@@ -26,13 +26,13 @@
                                 <div class="carousel-inner rounded-3">
 
                                     <div class="carousel-item active">
-                                        <img src="{{ asset('storage/culinary/'. $images[0]) }}" class="d-block w-100 object-fit-cover" 
+                                        <img src="{{ asset('storage/msmes/'. $images[0]) }}" class="d-block w-100 object-fit-cover" 
                                             style="height: 400px;" alt="Image 1" loading="lazy">
                                     </div>
 
                                     @for ($i = 1; $i < count($images); $i++)
                                         <div class="carousel-item">
-                                            <img src="{{ asset('storage/culinary/'. $images[$i]) }}" class="d-block w-100 object-fit-cover" 
+                                            <img src="{{ asset('storage/msmes/'. $images[$i]) }}" class="d-block w-100 object-fit-cover" 
                                                 style="height: 400px;" alt="Image {{ $i+1 }}" loading="lazy">
                                         </div>
                                     @endfor
