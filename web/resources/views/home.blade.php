@@ -356,7 +356,7 @@
             <div class="container text-start my-5 title-landing" data-aos="fade-up">
                 <div class="row">
                     <div class="col">
-                        <h3>{{ __('home-msmes-title') }}</h3>
+                        <h3 class="subtitle">{{ __('home-msmes-title') }}</h3>
                     </div>
                     <div class="col text-end">
                         <a href="{{ url('/msmes') }}" class="btn button-primary">
