@@ -34,7 +34,7 @@
                             @foreach ($suggestions as $item)
                                 
                                 <div class="card shadow-sm border-0 mb-3 card-hover table-color">
-                                    <a href="cultures-description.html">
+                                    <a href="{{ url('/cultures/' . $item->id) }}">
                                         <div class="row g-0">
                                             <div class="col-lg-4">
                                                 <img src="{{ asset('/storage/cultures/' . $item->cover) }}" class="card-cultures2 rounded shadow-sm" alt="{{ $item->name }}">
