@@ -135,9 +135,10 @@
                                             <option value="2">Alam</option>
                                             <option value="3">Religi</option>
                                             <option value="4">Rekreasi</option>
-                                            <option value="5">Petualangan</option>
-                                            <option value="6">Olahraga</option>
-                                            <option value="7">Kota</option>
+                                            <option value="5">Sejarah</option>
+                                            <option value="6">Petualangan</option>
+                                            <option value="7">Olahraga</option>
+                                            <option value="8">Kota</option>
                                         </select>
                                     </div>
     
