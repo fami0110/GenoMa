@@ -87,6 +87,10 @@ a:hover {
   text-decoration: none;
 }
 
+body.dark-mode a:hover {
+  color: #97b9ff;
+}
+
 h1,
 h2,
 h3,
