@@ -8,8 +8,8 @@
     <meta name="robots" content="noindex">
     <title>GenoMa - Login</title>
 
-    <meta name="description" content="Get to Know Malang: Explore Malang City with GenoMa. Discover its rich culture, breathtaking tourism destinations, local traditions, and much more." />
-    <meta name="keywords" content="Malang, Malang City, Kota Malang, budaya, pariwisata, UMKM, kuliner, " />
+    <meta name="description" content="Get to Know Malang: {{ __('meta-description') }}" />
+    <meta name="keywords" content="Malang, Malang City, Kota Malang, budaya, pariwisata, UMKM, kuliner, Indonesia, Jawa Timur " />
     <meta name="author" content="GenoMa's Team">
 
     <!-- Favicons -->
