@@ -7,7 +7,7 @@
         <section id="hero" class="hero section">
             <div class="hero-bg">
                 <div class="video-wrap">
-                    <video preload="none" autoplay loop muted poster class="custom-video">
+                    <video preload="none" autoplay loop muted poster="{{ asset('assets/img/thumbnail.png') }}" class="custom-video">
                         <source src="{{ asset('assets/img/video.mp4') }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
