@@ -56,7 +56,7 @@
                                             <div class="col-lg-7">
                                                 <div class="card-body">
                                                     <h5 class="card-title mb-2 mt-lg-4">{{ $item->name }}</h5>
-                                                    <p class="card-text">{{ substr(preg_replace('/<[^>]*>/i', '', $item->content), 0, 125) . "..." }}</p>
+                                                    <p class="card-text">{{ substr(preg_replace('/<[^>]*>/i', '', $item->content), 0, 100) . "..." }}</p>
                                                     <a href="{{ url('/cultures/' . $item->id) }}" class="btn button-primary mt-3 text-start text-md-center">
                                                         {{ __('see-more') }}<i class="bi bi-arrow-right ms-1"></i></a>
                                                 </div>
