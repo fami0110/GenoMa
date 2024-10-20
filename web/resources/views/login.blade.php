@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="robots" content="noindex">
     <title>GenoMa - Login</title>
 
-    <meta name="description" content="Frontend by GenoMa's Team" />
-    <meta name="keywords" content="">
+    <meta name="description" content="Get to Know Malang: Explore Malang City with GenoMa. Discover its rich culture, breathtaking tourism destinations, local traditions, and much more." />
+    <meta name="keywords" content="Malang, Malang City, Kota Malang, budaya, pariwisata, UMKM, kuliner, " />
+    <meta name="author" content="GenoMa's Team">
 
     <!-- Favicons -->
     <link href="{{ asset('assets/img/icon-logo.svg') }}" rel="icon">
