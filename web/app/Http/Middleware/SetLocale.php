@@ -21,6 +21,8 @@ class SetLocale
         if ($lang)  App::setLocale($lang);
         else        session()->put('locale', 'id');
 
+        setlocale(LC_ALL, session('locale'));
+
         return $next($request);
     }
 }

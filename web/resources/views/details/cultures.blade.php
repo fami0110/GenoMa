@@ -14,7 +14,7 @@
 
                         <article class="blog-post">
                             <h2 class="blog-post-title mt-3">{{ $data->name }}</h2>
-                            <p class="blog-post-meta">{{ date('l, j F Y', strtotime($data->created_at)) }}</p>
+                            <p class="blog-post-meta">{{ Carbon\Carbon::parse($data->created_at)->formatLocalized('%A %d %B %Y') }}</p>
 
                             <hr>
 
