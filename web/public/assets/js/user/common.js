@@ -52,8 +52,8 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
 
         // Search functionality
 
-        const searchButton = document.querySelector(".input-group button#button-addon2");
-        const searchInput = document.querySelector('.input-group input[placeholder="Ketik di sini..."]');
+        const searchButton = document.querySelector("#search button");
+        const searchInput = document.querySelector('#search input');
 
         function executeSearch() {
             const searchText = searchInput.value.toLowerCase();

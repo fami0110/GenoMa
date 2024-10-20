@@ -29,9 +29,9 @@
                         </form>
                     </div>
                     <div class="col-lg-3">
-                        <div class="input-group mb-3 mt-3 mt-lg-0">
+                        <div class="input-group mb-3 mt-3 mt-lg-0" id="search">
                             <input type="text" class="form-control rounded-start-5" placeholder="{{ __('type-here') }}">
-                            <button class="btn button-outline-primary rounded-end-5" type="button" id="button-addon2">
+                            <button class="btn button-outline-primary rounded-end-5" type="button">
                                 {{ __('search') }}
                             </button>
                         </div>
