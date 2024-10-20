@@ -9,7 +9,7 @@
     <title>GenoMa - Login</title>
 
     <meta name="description" content="Get to Know Malang: {{ __('meta-description') }}" />
-    <meta property="og:image" content="{{ asset('assets/img/thumbnail.jpg') }}">
+    <meta property="og:image" content="{{ asset('assets/img/genoma.jpg') }}">
     <meta name="keywords" content="Malang, Malang City, Kota Malang, budaya, pariwisata, UMKM, kuliner, Indonesia, Jawa Timur " />
     <meta name="author" content="GenoMa's Team">
 
