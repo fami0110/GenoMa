@@ -93,10 +93,10 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
                 filteredItems = Array.from(isotopeItems).filter(item => item.classList.contains(itemFilter));
             }
 
-            let pagesAmount = 1;
+            let pagesAmount = 0;
             for (let i = 1; i <= filteredItems.length; i++) {
-                filteredItems[i-1].setAttribute('data-page', pagesAmount);
                 if (i % itemsPerPage === 0) pagesAmount++;
+                filteredItems[i-1].setAttribute('data-page', pagesAmount);
             }
 
             // Update pagination nav
@@ -113,13 +113,16 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
                 paginationNav.append(btn);
             }
 
-            paginationNav.children[0].classList.add('active');
-            Array.from(paginationNav.children).forEach(nav => {
-                nav.onclick = () => {
-                    currentPage = parseInt(nav.getAttribute('data-page'));
-                    arrange();
-                };
-            });
+            if (pagesAmount) {
+                paginationNav.children[0].classList.add('active');
+                Array.from(paginationNav.children).forEach(nav => {
+                    nav.onclick = () => {
+                        currentPage = parseInt(nav.getAttribute('data-page'));
+                        arrange();
+                    };
+                });
+            }
+
 
             // Reset current page number
             currentPage = 1;
