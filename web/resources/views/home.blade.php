@@ -150,7 +150,8 @@
                         <div class="col-12 col-md-5">
                             <div class="d-grid">
                                 <a href="{{ url('/culinary') }}" class="btn button-primary fs-5" data-aos="fade-up"
-                                    data-aos-delay="200">{{ __('see-more') }} <i class="bi bi-arrow-right"></i></a>
+                                    data-aos-delay="200">{{ __('see-more') }} <i class="bi bi-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -226,7 +227,8 @@
                     <div class="col-md-3">
                         <div class="d-grid mt-lg-5">
                             <a href="{{ url('/culinary') }}" class="btn button-blur mt-2" data-aos="fade-up"
-                                data-aos-delay="200">{{ __('see-more') }} <i class="bi bi-arrow-right"></i></a>
+                                data-aos-delay="200">{{ __('see-more') }} <i class="bi bi-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -244,7 +246,9 @@
                     <h3 class="title">MALANG</h3>
                     <h2 class="subtitle">{{ __('home-cultures-title') }}</h2>
                 @endif
-                <button class="btn button-primary">{{ __('see-more') }} <i class="bi bi bi-arrow-right"></i></button>
+                <a href="{{ url('/cultures') }}" class="btn button-primary">
+                    {{ __('see-more') }} <i class="bi bi bi-arrow-right"></i>
+                </a>
             </div>
 
             <div class="container-fluid mt-3">
@@ -355,11 +359,11 @@
         <section id="umkm" class="umkm section dark-background mt-4 mb-5">
             <div class="container text-start my-5 title-landing" data-aos="fade-up">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <h3 class="subtitle">{{ __('home-msmes-title') }}</h3>
                     </div>
-                    <div class="col text-end">
-                        <a href="{{ url('/msmes') }}" class="btn button-primary">
+                    <div class="col-md-6 col-auto text-end">
+                        <a href="{{ url('/msmes') }}" class="btn button-primary mt-2">
                             {{ __('see-more') }} <i class="bi bi bi-arrow-right"></i>
                         </a>
                     </div>
