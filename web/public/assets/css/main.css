@@ -595,6 +595,12 @@ h6 {
   -o-transition: all 0.3s ease;
 }
 
+@media (max-width: 1200px) {
+  body.mobile-nav-active #mode-toggle {
+    display: none;
+  }
+}
+
 #mode-toggle:hover {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
