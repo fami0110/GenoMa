@@ -95,7 +95,7 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
 
             let pagesAmount = 0;
             for (let i = 1; i <= filteredItems.length; i++) {
-                if (i % itemsPerPage === 0) pagesAmount++;
+                if (i % itemsPerPage === 1) pagesAmount++;
                 filteredItems[i-1].setAttribute('data-page', pagesAmount);
             }
 
