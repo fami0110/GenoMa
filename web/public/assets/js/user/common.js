@@ -10,7 +10,7 @@ document.querySelectorAll(".isotope-layout").forEach(function (isotopeItem) {
     const isotopeContainer = isotopeItem.querySelector(".isotope-container");
     let initIsotope;
 
-    imagesLoaded(isotopeContainer, function () {
+    document.addEventListener("DOMContentLoaded", function () {
         initIsotope = new Isotope(isotopeContainer,
             {
                 itemSelector: ".isotope-item",

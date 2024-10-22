@@ -103,7 +103,6 @@
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}" defer></script>
-    <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}" defer></script>
 
     <!-- Page Script -->
     <script src="{{ asset('assets/js/user/common.js') }}" defer></script>
