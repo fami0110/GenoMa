@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $('#latitude').val(data.latitude);
             $('#price_min').val(data.price_min);
             $('#price_max').val(data.price_max);
-            $('#is_recomended').attr('checked', Boolean(data.is_recomended));
+            $('#is_recomended').attr('checked', Boolean(parseInt(data.is_recomended)));
             $('#rate').val(data.rate);
         }
 
