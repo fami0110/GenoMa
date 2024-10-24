@@ -1986,16 +1986,14 @@ div.dt-container.dt-empty-footer tbody > tr > * {
 .form-select {
   background-color: var(--thead-bg-color);
   color: var(--thead-text-color);
-  border: 1px solid var(--thead-bg-color);
   transition: all 0.3s ease;
-  padding: 8px;
-  border-radius: 4px;
+  padding: 6px 8px;
+  border-radius: 8px;
 }
 
 .form-select:focus {
   background-color: var(--input-active-bg-color);
   color: var(--input-active-text-color);
-  border-color: var(--input-active-border-color);
   outline: none;
   box-shadow: 0 0 5px var(--input-active-border-color);
 }
@@ -2067,6 +2065,10 @@ body.dark-mode .trix-dialog {
 body.dark-mode .trix-dialog * {
   background-color: transparent;
   color: var(--default-color);
+}
+
+body.dark-mode button.btn-close {
+  filter: invert(1);
 }
 
 /* img bg loader */
