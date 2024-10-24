@@ -59,7 +59,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">
-                                                {{ $item->rate }}
+                                                {{ number_format($item->rate, 1, ",", ".") }}
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-1 align-items-center">
