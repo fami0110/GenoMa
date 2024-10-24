@@ -1988,7 +1988,7 @@ div.dt-container.dt-empty-footer tbody > tr > * {
   color: var(--thead-text-color);
   transition: all 0.3s ease;
   padding: 6px 8px;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .form-select:focus {
