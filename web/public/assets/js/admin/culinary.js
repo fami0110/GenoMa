@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $('#name').val(data.name);
 
             const schedules = data.schedules;
-            if (schedules.length > 0) {
+            if (Object.keys(schedules).length > 0) {
                 for (let day in schedules)
                     addShedule(day, schedules[day]['time-start'], schedules[day]['time-end']);
             } else {
