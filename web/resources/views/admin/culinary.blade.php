@@ -13,6 +13,10 @@
                             <h4 class="text-secondary mx-2">{{ __('table-content') }}</h4>
                         </div>
                         <div class="text-end col-lg-6">
+                            <label for="import-json" class="btn button-primary" style="background-color: #ff8126;">
+                                <input type="file" id="import-json" accept=".json" hidden>
+                                Import JSON
+                            </label>
                             <button type="button" class="btn button-primary mx-2 add-btn" data-bs-toggle="modal" data-bs-target="#formModal">
                                 {{ __('add-data') }}
                             </button>
@@ -130,7 +134,7 @@
                                     <div class="mb-3">
                                         <label for="category" class="form-label">Kategori <span class="text-danger">*</span></label>
                                         <select class="form-select" id="category" name="category" required>
-                                            <option selected disabled>Pilih...</option>
+                                            <option disabled>Pilih...</option>
                                             <option value="1">Makanan</option>
                                             <option value="2">Minuman</option>
                                             <option value="3">Kafe</option>

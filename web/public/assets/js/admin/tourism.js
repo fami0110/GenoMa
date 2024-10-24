@@ -89,6 +89,54 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // IMPORT JSON ///
+    
+    $('#import-json').on('change', function() {
+        const input = $(this)[0];
+        const file = input.files[0];
+
+        const readJsonFile = function (file, callback = (item) => item) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const res = JSON.parse(e.target.result);
+                callback(res)
+            };
+            reader.onerror = (e) => {
+                console.error('Error reading file:', e);
+            };
+            reader.readAsText(file);
+        }
+
+        readJsonFile(file, data => {
+            // Raise the modal
+            document.querySelector('.add-btn').click();     
+            
+            // Data config
+            $('#formModal input[name="_method"]').val("POST");
+            $('#cover').attr('required', true);
+            $('#formModalLabel').text('Tambah Data');
+            
+            // Set action
+            const form = $('#formModal form');
+            form.attr('action', form.data('default-action'));
+
+            // Reset Form
+            $('#formModal form')[0].reset();
+
+            // Add the data into form
+            $('#name').val(data.name);
+            $('#address').val(data.address);
+            $('#link').val(data.link);
+            $('#longitude').val(data.longitude);
+            $('#latitude').val(data.latitude);
+            $('#price_min').val(data.price_min);
+            $('#price_max').val(data.price_max);
+            $('#rate').val(data.rate);
+
+            // Reset import file value
+            input.value = '';
+        });
+    });
 
     // IMG SLIDER EVENT
 
