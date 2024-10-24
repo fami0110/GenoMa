@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (facilities.children.length >= 5) {
             Swal.fire({
                 title: "Warning!",
-                text: "Maximum day exceeded!",
+                text: "Maximum list exceeded!",
                 icon: "warning",
             });
             
